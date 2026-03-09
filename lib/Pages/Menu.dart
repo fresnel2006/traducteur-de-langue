@@ -1,4 +1,6 @@
 import 'package:app1/Pages/Apprentissage.dart';
+import 'package:app1/Pages/Bienvenue.dart';
+import 'package:app1/Pages/BienvenueApprentissage.dart';
 import 'package:app1/Pages/Parametre.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -98,7 +100,7 @@ class _MenuPageState extends State<MenuPage> {
                     ,),
                 GestureDetector(
                   onTap: (){
-                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ApprentissagePage()), (route)=>false);
+                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>BienvenueApprentissagePage()), (route)=>false);
                   },
                   child: Container(
                       alignment: Alignment.center,
