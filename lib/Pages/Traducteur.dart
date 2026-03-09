@@ -52,7 +52,7 @@ class _TraducteurPageState extends State<TraducteurPage> {
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(MediaQuery.of(context).size.width *0.1),
                   bottomRight: Radius.circular(MediaQuery.of(context).size.width *0.1)
-                )
+                ),
               ),
             ):Container(
               height: MediaQuery.of(context).size.height *0.7,
