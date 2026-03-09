@@ -1,3 +1,4 @@
+import 'package:app1/Pages/Switch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:lottie/lottie.dart';
@@ -10,6 +11,16 @@ class BienvenuePage extends StatefulWidget {
 }
 
 class _BienvenuePageState extends State<BienvenuePage> {
+
+  Future <void> patience() async{
+    await Future.delayed(Duration(seconds: 3));
+    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>SwitchPage()), (route)=>false);
+  }
+  @override
+  void initState(){
+    super.initState();
+    patience();
+    }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

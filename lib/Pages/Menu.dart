@@ -23,11 +23,11 @@ class _MenuPageState extends State<MenuPage> {
               children: [
                 Container(
                   alignment: Alignment.center,
-                  height: MediaQuery.of(context).size.height *0.2,
+                  height: MediaQuery.of(context).size.height *0.25,
                   decoration: BoxDecoration(
                       color:Color(0xFF2E5AA6),
                     borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(MediaQuery.of(context).size.width *0.1)
+                      bottomRight: Radius.circular(MediaQuery.of(context).size.width *0.2)
                     )
                   ),
                   child: ListTile(

@@ -1,4 +1,6 @@
+import 'package:app1/Pages/Bienvenue.dart';
 import 'package:app1/Pages/Inscription.dart';
+import 'package:app1/Pages/Switch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
@@ -62,6 +64,11 @@ class _ConnexionPageState extends State<ConnexionPage> {
                     ),
                   ).animate().fadeIn().scale(delay:Duration(milliseconds: 300),begin: Offset(1.3, 1.3),end: Offset(1, 1)),
                   SizedBox(height: MediaQuery.of(context).size.height *0.04,),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>BienvenuePage()), (route)=>false);
+                    },
+                    child:
                   Container(
                     alignment: Alignment.center,
                     height: MediaQuery.of(context).size.height *0.06,
@@ -71,6 +78,7 @@ class _ConnexionPageState extends State<ConnexionPage> {
                         borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *0.2))
                     ),
                     child: Text("Se connecter",style: TextStyle(fontSize: MediaQuery.of(context).size.width *0.043,fontFamily: "Poppins",color: Color(0xFF2E5AA6)),),
+                  ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height *0.03),
 

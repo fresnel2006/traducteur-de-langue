@@ -1,4 +1,6 @@
+import 'package:app1/Pages/Bienvenue.dart';
 import 'package:app1/Pages/Connexion.dart';
+import 'package:app1/Pages/Switch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
@@ -92,7 +94,7 @@ class _InscriptionPageState extends State<InscriptionPage> {
                 SizedBox(height: MediaQuery.of(context).size.height *0.04,),
                 GestureDetector(
                   onTap: (){
-
+Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>BienvenuePage()), (route)=>false);
                   },
                   child: Container(
                     alignment: Alignment.center,

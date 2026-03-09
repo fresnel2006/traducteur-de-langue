@@ -14,7 +14,7 @@ class _SwitchPageState extends State<SwitchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white70,
+      backgroundColor: Colors.white,
       body:ZoomDrawer(
         menuScreen: MenuPage(), mainScreen: TraducteurPage(),
         mainScreenTapClose: true,
