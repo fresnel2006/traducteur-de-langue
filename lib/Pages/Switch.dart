@@ -16,10 +16,15 @@ class _SwitchPageState extends State<SwitchPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       body:ZoomDrawer(
+        style: DrawerStyle.defaultStyle,
         menuScreen: MenuPage(), mainScreen: TraducteurPage(),
         mainScreenTapClose: true,
+        mainScreenOverlayColor: Colors.black12,
         angle: 0,
-        slideWidth: MediaQuery.of(context).size.width *0.87,
+        shadowLayer1Color: Colors.black12,
+        shadowLayer2Color: Colors.black26,
+        showShadow: true,
+        slideWidth: MediaQuery.of(context).size.width *0.82,
 
 
 

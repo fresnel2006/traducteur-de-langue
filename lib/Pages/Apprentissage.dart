@@ -1,4 +1,5 @@
 import 'package:app1/Pages/Entrainement.dart';
+import 'package:app1/Pages/Entrainement2.dart';
 import 'package:app1/Pages/Switch.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -165,6 +166,9 @@ class _ApprentissagePageState extends State<ApprentissagePage> {
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height *0.015,),
                     GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Entrainement2Page()));
+                      },
                       child:
                     Stack(
                       children: [

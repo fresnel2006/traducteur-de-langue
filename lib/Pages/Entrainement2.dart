@@ -2,14 +2,14 @@ import 'package:app1/Pages/Apprentissage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class EntrainementPage extends StatefulWidget {
-  const EntrainementPage({super.key});
+class Entrainement2Page extends StatefulWidget {
+  const Entrainement2Page({super.key});
 
   @override
-  State<EntrainementPage> createState() => _EntrainementPageState();
+  State<Entrainement2Page> createState() => _Entrainement2PageState();
 }
 
-class _EntrainementPageState extends State<EntrainementPage> {
+class _Entrainement2PageState extends State<Entrainement2Page> {
   int index=1;
   void augmenter_valeur_index(){
     if(index==4){
@@ -21,15 +21,15 @@ class _EntrainementPageState extends State<EntrainementPage> {
     }
   }
   void diminuer_valeur_index(){
-      if(index==1){
-          setState(() {
-            index==1;
-          });
-        }else{
-        setState(() {
-          index-=1;
-        });
-      }
+    if(index==1){
+      setState(() {
+        index==1;
+      });
+    }else{
+      setState(() {
+        index-=1;
+      });
+    }
 
   }
   @override
@@ -42,18 +42,18 @@ class _EntrainementPageState extends State<EntrainementPage> {
             children: [
               SizedBox(height: MediaQuery.of(context).size.height *0.05,),
               index==1?Container(
-                width: MediaQuery.of(context).size.width *1,
-                margin: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.045),
-                child:
-                Row(children: [
-                  IconButton(onPressed: (){
-                    Navigator.pop(context);
-                  }, icon: Icon(CupertinoIcons.arrowshape_turn_up_left_2_fill,color: Colors.white,size: MediaQuery.of(context).size.width *0.07,)),
-                  SizedBox(width: MediaQuery.of(context).size.width *0.03,),
-                  Text("Apprentissage",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.07),),
+                  width: MediaQuery.of(context).size.width *1,
+                  margin: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.045),
+                  child:
+                  Row(children: [
+                    IconButton(onPressed: (){
+                      Navigator.pop(context);
+                    }, icon: Icon(CupertinoIcons.arrowshape_turn_up_left_2_fill,color: Colors.white,size: MediaQuery.of(context).size.width *0.07,)),
+                    SizedBox(width: MediaQuery.of(context).size.width *0.03,),
+                    Text("Apprentissage",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.07),),
 
-                ],)
-                ):
+                  ],)
+              ):
               Container(
                   width: MediaQuery.of(context).size.width *1,
                   margin: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.045),
@@ -75,17 +75,17 @@ class _EntrainementPageState extends State<EntrainementPage> {
                     alignment: Alignment.center,
                     height: MediaQuery.of(context).size.width *0.15,
                     width: MediaQuery.of(context).size.width *0.15,
-                decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *1)),
-                border:  Border.all(color: Colors.white,width: MediaQuery.of(context).size.width *0.007),
-              )
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *1)),
+                      border:  Border.all(color: Colors.white,width: MediaQuery.of(context).size.width *0.007),
+                    )
                     ,child: Text("1",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.07
                   ),),
                   ),
                   Container(
-                    width: MediaQuery.of(context).size.width *0.65,
-                    decoration: BoxDecoration(
-                    border:  Border.all(color: Colors.white),)
+                      width: MediaQuery.of(context).size.width *0.65,
+                      decoration: BoxDecoration(
+                        border:  Border.all(color: Colors.white),)
                   )
                 ],
               ):
@@ -176,80 +176,80 @@ class _EntrainementPageState extends State<EntrainementPage> {
             ],
           ),
           Container(
-            alignment: Alignment.center,
-            margin: EdgeInsets.only(
-              top: MediaQuery.of(context).size.height *0.83
-            ),
-            child: Column(
-              spacing:MediaQuery.of(context).size.width *0.05,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  spacing:MediaQuery.of(context).size.width *0.01 ,
-                  children: [
-                    Container(
-                      height: MediaQuery.of(context).size.width *0.04,
-                      width: MediaQuery.of(context).size.width *0.04,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *1)),
-                        border: Border.all(color: Colors.white)
+              alignment: Alignment.center,
+              margin: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height *0.83
+              ),
+              child: Column(
+                spacing:MediaQuery.of(context).size.width *0.05,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    spacing:MediaQuery.of(context).size.width *0.01 ,
+                    children: [
+                      Container(
+                        height: MediaQuery.of(context).size.width *0.04,
+                        width: MediaQuery.of(context).size.width *0.04,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *1)),
+                            border: Border.all(color: Colors.white)
+                        ),
                       ),
-                    ),
-                    Container(
-                      height: MediaQuery.of(context).size.width *0.04,
-                      width: MediaQuery.of(context).size.width *0.04,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *1)),
-                          border: Border.all(color: Colors.white)
+                      Container(
+                        height: MediaQuery.of(context).size.width *0.04,
+                        width: MediaQuery.of(context).size.width *0.04,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *1)),
+                            border: Border.all(color: Colors.white)
+                        ),
                       ),
-                    ),
-                    Container(
-                      height: MediaQuery.of(context).size.width *0.04,
-                      width: MediaQuery.of(context).size.width *0.04,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *1)),
-                          border: Border.all(color: Colors.white)
+                      Container(
+                        height: MediaQuery.of(context).size.width *0.04,
+                        width: MediaQuery.of(context).size.width *0.04,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *1)),
+                            border: Border.all(color: Colors.white)
+                        ),
                       ),
-                    ),
-                    Container(
-                      height: MediaQuery.of(context).size.width *0.04,
-                      width: MediaQuery.of(context).size.width *0.04,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *1)),
-                          border: Border.all(color: Colors.white)
+                      Container(
+                        height: MediaQuery.of(context).size.width *0.04,
+                        width: MediaQuery.of(context).size.width *0.04,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *1)),
+                            border: Border.all(color: Colors.white)
+                        ),
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        height: MediaQuery.of(context).size.width *0.13,
+                        width: MediaQuery.of(context).size.width *0.13,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *1,))
+                        ),
+                        child: IconButton(onPressed: (){
+                          diminuer_valeur_index();
+                        }, icon: Icon(Icons.arrow_back_ios_sharp,color: Color(0xFF2E5AA6),)),
                       ),
-                    )
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: MediaQuery.of(context).size.width *0.13,
-                      width: MediaQuery.of(context).size.width *0.13,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *1,))
-                      ),
-                      child: IconButton(onPressed: (){
-                        diminuer_valeur_index();
-                      }, icon: Icon(Icons.arrow_back_ios_sharp,color: Color(0xFF2E5AA6),)),
-                    ),
-                    SizedBox(width: MediaQuery.of(context).size.width *0.07,),
-                    Container(
-                      height: MediaQuery.of(context).size.width *0.13,
-                      width: MediaQuery.of(context).size.width *0.13,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *1,))
-                      ),
-                      child: IconButton(onPressed: (){
-                        augmenter_valeur_index();
-                      }, icon: Icon(Icons.arrow_forward_ios_rounded,color: Color(0xFF2E5AA6),)),
-                    )
-                  ],
-                ),
-              ],
+                      SizedBox(width: MediaQuery.of(context).size.width *0.07,),
+                      Container(
+                        height: MediaQuery.of(context).size.width *0.13,
+                        width: MediaQuery.of(context).size.width *0.13,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *1,))
+                        ),
+                        child: IconButton(onPressed: (){
+                          augmenter_valeur_index();
+                        }, icon: Icon(Icons.arrow_forward_ios_rounded,color: Color(0xFF2E5AA6),)),
+                      )
+                    ],
+                  ),
+                ],
               )
           )
         ],

@@ -1,5 +1,3 @@
-import 'package:app1/Pages/Apprentissage.dart';
-import 'package:app1/Pages/Bienvenue.dart';
 import 'package:app1/Pages/BienvenueApprentissage.dart';
 import 'package:app1/Pages/Parametre.dart';
 import 'package:flutter/cupertino.dart';
@@ -32,12 +30,8 @@ class _MenuPageState extends State<MenuPage> {
                       bottomRight: Radius.circular(MediaQuery.of(context).size.width *0.2)
                     )
                   ),
-                  child: ListTile(
-                    title: Text("Arê ho",style:TextStyle(color:Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.065)),
-                    leading: Icon(Icons.waving_hand_rounded,color: Colors.white,size: MediaQuery.of(context).size.width *0.1,),
-                    subtitle: Text("Traore ange",style:TextStyle(color:Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.055)),
-                    trailing: Icon(CupertinoIcons.arrow_down_right,color: Colors.white,size: MediaQuery.of(context).size.width *0.08,),
-                  ),
+
+
                 ),
 
                 SizedBox(height: MediaQuery.of(context).size.height *0.04,),
@@ -135,9 +129,7 @@ class _MenuPageState extends State<MenuPage> {
                   )
                   ,),
                 SizedBox(height: MediaQuery.of(context).size.height *0.08,),
-                Container(
-                  child: Lottie.asset("assets/animations/01_Finishig Studies.json"),
-                )
+                Container(child: Lottie.asset("assets/animations/01_Finishig Studies.json",width: MediaQuery.of(context).size.width *0.62),)
                 ]
             )
           ],
