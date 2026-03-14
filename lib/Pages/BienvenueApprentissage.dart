@@ -1,4 +1,5 @@
 import 'package:app1/Pages/Apprentissage.dart';
+import 'package:app1/Pages/Switch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:lottie/lottie.dart';
@@ -41,7 +42,9 @@ class _BienvenueApprentissagePageState extends State<BienvenueApprentissagePage>
                 color: Colors.blue.shade100,
                 borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *0.05))
               ),
-              child: IconButton(onPressed: (){}, icon: Icon(Icons.arrow_back)),
+              child: IconButton(onPressed: (){
+                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>SwitchPage()), (route)=>false);
+              }, icon: Icon(Icons.arrow_back)),
             ),
             Column(
               children: [

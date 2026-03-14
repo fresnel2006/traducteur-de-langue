@@ -38,6 +38,8 @@ class _EntrainementPageState extends State<EntrainementPage> {
       backgroundColor: Color(0xFF2E5AA6),
       body: Stack(
         children: [
+          SingleChildScrollView(
+          child:
           Column(
             children: [
               SizedBox(height: MediaQuery.of(context).size.height *0.05,),
@@ -63,7 +65,7 @@ class _EntrainementPageState extends State<EntrainementPage> {
                       Navigator.pop(context);
                     }, icon: Icon(CupertinoIcons.arrowshape_turn_up_left_2_fill,color: Colors.white,size: MediaQuery.of(context).size.width *0.07,)),
                     SizedBox(width: MediaQuery.of(context).size.width *0.03,),
-                    Text("Salutations",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.07),),
+                    Text("Bases",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.07),),
 
                   ],)
               ),
@@ -161,20 +163,719 @@ class _EntrainementPageState extends State<EntrainementPage> {
                 child: Text("Tout commence au XVIIIe siècle (vers 1750), dans l'actuel Ghana.\nÀ cette époque, le puissant Empire Ashanti est en proie à des luttes de succession sanglantes après la mort du roi Opoku Waré.\nUne faction de la famille royale, dirigée par la Reine Abla Pokou, refuse de se soumettre au nouvel héritier.\nMenacée de mort, elle décide de s'enfuir vers l'Ouest (la Côte d'Ivoire actuelle) avec sa famille, ses soldats et ses partisans.",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045),),
               ):
               index==2?Container(
-                margin: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.045),
-                child: Text("texte2",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045),),
-              ):
+                margin: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.045,right:MediaQuery.of(context).size.width *0.045 ),
+                child: Column(
+                  spacing: 19,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text("Français",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
+                        Text("Baoulé",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
+                      ],
+                    )
+                    ,SizedBox(height: MediaQuery.of(context).size.height *0.025,)
+                    ,Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Bienvenue\nBonne arrivée",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
+                        Text("Akwaba",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Bonjour (Général)",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
+                        Text("	N’zue mo",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Bonne nuit",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
+                        Text("Nanan m’on",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("À demain",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
+                        Text("	N'zue m'ba",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Comment ça va ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
+                        Text("Sassé kpa ?",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Ça va bien",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
+                        Text("O ti kpa",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+                      ],
+                    ),
+
+
+
+
+                  ],
+                )):
               index==3?Container(
-                margin: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.045),
-                child: Text("texte2",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045),),
-              ):
+                margin: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.045,right: MediaQuery.of(context).size.width *0.045),
+                child: Column(
+                  spacing: 19,
+                  children: [
+                    SizedBox(height: MediaQuery.of(context).size.height *0,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Et la famille ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
+                        Text("Awlo'n mou kôni ?",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Et les enfants ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
+                        Text("Ba'n mou kôni ?",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Ils vont bien",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
+                        Text("Be ti kpa",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Pardon\nS'il vous plaît",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
+                        Text("Yatchi",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Au revoir",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
+                        Text("An’nin",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Viens\nApproche",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
+                        Text("Bla",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+                      ],
+                    ),
+
+
+
+
+                  ],
+                )):
               index==4?Container(
-                margin: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.045),
-                child: Text("texte2",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045),),
-              ):
+                margin: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.045,right: MediaQuery.of(context).size.width *0.045),
+                child: Column(
+                  spacing: 19,
+                  children: [
+                    SizedBox(height: MediaQuery.of(context).size.height *0,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Va\nPars",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
+                        Text("Kô",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                        Container(
+                          height: MediaQuery.of(context).size.height *0.003,
+                          width: MediaQuery.of(context).size.width *0.1,
+                          decoration: BoxDecoration(
+                              color:Colors.white30
+                          ),),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Manger",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
+                        Text("Di",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+                      ],
+                    ),
+                  ],
+                )):
               Text("")
             ],
-          ),
+          ),),
           Container(
             alignment: Alignment.center,
             margin: EdgeInsets.only(
@@ -191,6 +892,7 @@ class _EntrainementPageState extends State<EntrainementPage> {
                       height: MediaQuery.of(context).size.width *0.04,
                       width: MediaQuery.of(context).size.width *0.04,
                       decoration: BoxDecoration(
+                        color: index==1?Colors.white:Colors.transparent,
                         borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *1)),
                         border: Border.all(color: Colors.white)
                       ),
@@ -199,6 +901,7 @@ class _EntrainementPageState extends State<EntrainementPage> {
                       height: MediaQuery.of(context).size.width *0.04,
                       width: MediaQuery.of(context).size.width *0.04,
                       decoration: BoxDecoration(
+                          color: index==2?Colors.white:Colors.transparent,
                           borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *1)),
                           border: Border.all(color: Colors.white)
                       ),
@@ -207,6 +910,7 @@ class _EntrainementPageState extends State<EntrainementPage> {
                       height: MediaQuery.of(context).size.width *0.04,
                       width: MediaQuery.of(context).size.width *0.04,
                       decoration: BoxDecoration(
+                          color: index==3?Colors.white:Colors.transparent,
                           borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *1)),
                           border: Border.all(color: Colors.white)
                       ),
@@ -215,6 +919,7 @@ class _EntrainementPageState extends State<EntrainementPage> {
                       height: MediaQuery.of(context).size.width *0.04,
                       width: MediaQuery.of(context).size.width *0.04,
                       decoration: BoxDecoration(
+                          color: index==4?Colors.white:Colors.transparent,
                           borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *1)),
                           border: Border.all(color: Colors.white)
                       ),
