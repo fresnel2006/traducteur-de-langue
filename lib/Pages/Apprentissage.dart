@@ -1,5 +1,8 @@
+import 'package:app1/Pages/Debutant.dart';
 import 'package:app1/Pages/Entrainement.dart';
 import 'package:app1/Pages/Entrainement2.dart';
+import 'package:app1/Pages/Intermediaire.dart';
+import 'package:app1/Pages/NivoDan.dart';
 import 'package:app1/Pages/Switch.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,29 +22,22 @@ class _ApprentissagePageState extends State<ApprentissagePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Stack(
+      body:
+        Stack(
           children: [
+            SingleChildScrollView(
+              child:
             Column(
               children: [
-                SizedBox(height: MediaQuery.of(context).size.height *0.045,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    IconButton(onPressed: (){
-                      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>SwitchPage()), (route)=>false);
-
-                    }, icon: Icon(CupertinoIcons.arrowshape_turn_up_left_2_fill,color: Color(0xFF2E5AA6),size: MediaQuery.of(context).size.width *0.07,)),
-                    SizedBox(width: MediaQuery.of(context).size.width *0.04,),
-                    Text("Beflêmi Kouadio",style: TextStyle(fontFamily: "Poppins",color: Color(0xFF2E5AA6),fontSize: MediaQuery.of(context).size.width *0.06),)
-                    ,SizedBox(width: MediaQuery.of(context).size.width *0.2,),
-                  ],
-                ),
                 Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+
                   children: [
                     Container(
-                      margin: EdgeInsets.only(top: MediaQuery.of(context).size.height *0.2),
+                      alignment: Alignment.center,
+                      margin: EdgeInsets.only(top: MediaQuery.of(context).size.height *0.05),
+                      child: Image.asset("assets/images/logo apk.png",height: MediaQuery.of(context).size.height *0.3,width: MediaQuery.of(context).size.width *0.6,).animate().blur(duration: Duration(seconds: 1),begin: Offset(4, 4),end: Offset(0, 0)).fadeIn(),
+                    ),
+                    Container(
                       width:MediaQuery.of(context).size.width *0.5,
                       child:
                     Row(
@@ -82,6 +78,7 @@ class _ApprentissagePageState extends State<ApprentissagePage> {
                           decoration: BoxDecoration(
                               color: Color(0xFF2E5AA6)
                           ),
+
                         ),
                         Container(
                           child: Text("Apprentissage du \nbaoulé",textAlign: TextAlign.center,style: TextStyle(color: Color(0xFF2E5AA6),fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.043),),
@@ -255,6 +252,11 @@ class _ApprentissagePageState extends State<ApprentissagePage> {
                   child: Row(
                     children: [
                       SizedBox(width: MediaQuery.of(context).size.width *0.03,),
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>DebutantPage()));
+                        },
+                        child: 
                       Stack(
                         children: [
                           Container(
@@ -283,7 +285,13 @@ class _ApprentissagePageState extends State<ApprentissagePage> {
                           )
                         ],
                       ),
+                      ),
                       SizedBox(width: MediaQuery.of(context).size.width *0.03,),
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>IntermediairePage()));
+                        },
+                        child:
                       Stack(
                         children: [
                           SizedBox(width: MediaQuery.of(context).size.width *0.03,),
@@ -319,7 +327,13 @@ class _ApprentissagePageState extends State<ApprentissagePage> {
                           )
                         ],
                       ),
+                      ),
                       SizedBox(width: MediaQuery.of(context).size.width *0.03,),
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>NivodanPage()));
+                        },
+                        child:
                       Stack(
                         children: [
                           Container(
@@ -355,6 +369,7 @@ class _ApprentissagePageState extends State<ApprentissagePage> {
                           )
                         ],
                       ),
+                      ),
                       SizedBox(width: MediaQuery.of(context).size.width *0.03,),
                     ],
                   ),
@@ -363,11 +378,8 @@ class _ApprentissagePageState extends State<ApprentissagePage> {
                 SizedBox(height: MediaQuery.of(context).size.height *0.1,)
               ],
             ),
-            Container(
-              alignment: Alignment.center,
-              margin: EdgeInsets.only(top: MediaQuery.of(context).size.height *0.03),
-              child: Image.asset("assets/images/logo apk.png",height: MediaQuery.of(context).size.height *0.3,width: MediaQuery.of(context).size.width *0.6,).animate().blur(duration: Duration(seconds: 1),begin: Offset(4, 4),end: Offset(0, 0)).fadeIn(),
             ),
+
             Container(
               margin: EdgeInsets.only(top:MediaQuery.of(context).size.height *0.115,left: MediaQuery.of(context).size.width *0.7 ),
               child: Row(
@@ -376,11 +388,36 @@ class _ApprentissagePageState extends State<ApprentissagePage> {
                   Text(" XP",style: TextStyle(color: Color(0xFF2E5AA6),fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
                   ],
               ),
-            )
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height *0.1,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *0.01)),
+                
 
+              ),
+              child:
+            Column(
+              children: [
+                SizedBox(height: MediaQuery.of(context).size.height *0.045,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    IconButton(onPressed: (){
+                      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>SwitchPage()), (route)=>false);
+                    }, icon: Icon(CupertinoIcons.arrowshape_turn_up_left_2_fill,color: Color(0xFF2E5AA6),size: MediaQuery.of(context).size.width *0.07,)),
+                    SizedBox(width: MediaQuery.of(context).size.width *0.04,),
+                    Text("Beflêmi Kouadio",style: TextStyle(fontFamily: "Poppins",color: Color(0xFF2E5AA6),fontSize: MediaQuery.of(context).size.width *0.06),)
+                    ,SizedBox(width: MediaQuery.of(context).size.width *0.2,),
+                  ],
+                ),
+              ],
+            ),
+            )
           ],
         ),
-      ),
+
     );
   }
 }
