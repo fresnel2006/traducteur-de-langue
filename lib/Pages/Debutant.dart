@@ -20,19 +20,16 @@ class _DebutantPageState extends State<DebutantPage> {
           color:Color(0xFF2E5AA6),
           borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *0.1))
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Bonne reponse :   ",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.06),),
-              Text("0 sur 4",style: TextStyle(color: Colors.red,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.06))
-            ],
-          ),
-          Text("+  0 XP",style: TextStyle(color: Colors.red,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.06))
-        ],
-      ),
+      child:  ListTile(
+        title:
+        Row(
+          children: [
+            Text("Bonne reponse :   ",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045),),
+            Text("0 sur 4",style: TextStyle(color: Colors.red,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+          ],
+        ),
+        subtitle:Text("+  0 XP",style: TextStyle(color: Colors.red,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.04))
+      )
     )));
       Navigator.pop(context);
   }
