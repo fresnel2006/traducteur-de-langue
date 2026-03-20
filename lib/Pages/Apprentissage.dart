@@ -2,6 +2,7 @@ import 'package:app1/Pages/Debutant.dart';
 import 'package:app1/Pages/Entrainement.dart';
 import 'package:app1/Pages/Entrainement2.dart';
 import 'package:app1/Pages/Intermediaire.dart';
+import 'package:app1/Pages/Niveau.dart';
 import 'package:app1/Pages/NivoDan.dart';
 import 'package:app1/Pages/Switch.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,6 +21,7 @@ class _ApprentissagePageState extends State<ApprentissagePage> {
 
   @override
   Widget build(BuildContext context) {
+    var page;
     return Scaffold(
       backgroundColor: Colors.white,
       body:
@@ -254,7 +256,7 @@ class _ApprentissagePageState extends State<ApprentissagePage> {
                       SizedBox(width: MediaQuery.of(context).size.width *0.03,),
                       GestureDetector(
                         onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>DebutantPage()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>NiveauPage(page:1)));
                         },
                         child: 
                       Stack(
@@ -289,7 +291,8 @@ class _ApprentissagePageState extends State<ApprentissagePage> {
                       SizedBox(width: MediaQuery.of(context).size.width *0.03,),
                       GestureDetector(
                         onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>IntermediairePage()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>NiveauPage(page:2)));
+
                         },
                         child:
                       Stack(
@@ -331,7 +334,7 @@ class _ApprentissagePageState extends State<ApprentissagePage> {
                       SizedBox(width: MediaQuery.of(context).size.width *0.03,),
                       GestureDetector(
                         onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>NivodanPage()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>NiveauPage(page:3)));
                         },
                         child:
                       Stack(
@@ -390,12 +393,10 @@ class _ApprentissagePageState extends State<ApprentissagePage> {
               ),
             ),
             Container(
-              height: MediaQuery.of(context).size.height *0.1,
+              height: MediaQuery.of(context).size.height *0.11,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *0.01)),
-                
-
               ),
               child:
             Column(

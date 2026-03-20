@@ -139,7 +139,7 @@ class _Entrainement2PageState extends State<Entrainement2Page> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text("Mon nom \nest [Nom]",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
-                            Text("Mi dunman \nflè [Nom]",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+                            Text("Bé flè mi \n[Nom]",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
                           ],
                         ),
                         Row(
@@ -187,7 +187,7 @@ class _Entrainement2PageState extends State<Entrainement2Page> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text("Je viens de \n[Ville/Pays]",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
-                            Text("N fin \n[Ville/Pays]",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+                            Text("N'fi \n[Ville/Pays]",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
                           ],
                         ),
                         Row(
@@ -235,7 +235,7 @@ class _Entrainement2PageState extends State<Entrainement2Page> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text("J'habite à \n[Lieu]",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
-                            Text("N tran \n[Lieu]",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+                            Text("N tran \n[Lieu]",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
                           ],
                         ),
                         Row(
@@ -283,7 +283,7 @@ class _Entrainement2PageState extends State<Entrainement2Page> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text("Je suis content \nde vous voir",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
-                            Text("Mi kloun ti kpa \nkɛ n wun amun",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+                            Text("quê ouhô \noyo m fè",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
                           ],
                         ),
 

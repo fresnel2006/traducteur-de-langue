@@ -31,6 +31,7 @@ class _BienvenueApprentissagePageState extends State<BienvenueApprentissagePage>
   Widget build(BuildContext context) {
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Stack(
           children: [
@@ -71,9 +72,6 @@ class _BienvenueApprentissagePageState extends State<BienvenueApprentissagePage>
                 ).animate().fadeIn(delay: Duration(milliseconds: 600)):index==2?Container(child: Text("Relevez le défi : \nrépondez aux questions \nen langue baoulé et \ncumulez un maximum de points !",textAlign: TextAlign.center,style: TextStyle(fontFamily: "Poppins",color: Colors.black45,fontSize: MediaQuery.of(context).size.width *0.04),),
                 ).animate().fadeIn(delay: Duration(milliseconds: 600)):index==3?Container(child: Text("Bla yé Cô\nvient et allons s'y\net apprennons le baoulé",textAlign: TextAlign.center,style: TextStyle(fontFamily: "Poppins",color: Colors.black45,fontSize: MediaQuery.of(context).size.width *0.04),),)
                     .animate().fadeIn(delay: Duration(milliseconds: 600)):Text(""),
-
-
-
               ],
             ),
             Column(
@@ -107,7 +105,6 @@ class _BienvenueApprentissagePageState extends State<BienvenueApprentissagePage>
                           borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *1))
                       ),
                     ),
-
                   ],
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height *0.06,),
@@ -124,7 +121,6 @@ class _BienvenueApprentissagePageState extends State<BienvenueApprentissagePage>
                     }, child: index==3?Icon(Icons.arrow_forward,color: Colors.white,size: MediaQuery.of(context).size.width *0.07,):Text("Suivant",style: TextStyle(fontFamily: "Poppins",color: Colors.white),))
                 ),
               ],)
-
           ],
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:app1/Pages/Apprentissage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,18 +19,23 @@ class _DebutantPageState extends State<DebutantPage> {
       width: MediaQuery.of(context).size.width *0.9,
       decoration: BoxDecoration(
           color:Color(0xFF2E5AA6),
-          borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *0.1))
+          borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *0.05))
       ),
       child:  ListTile(
+        leading: Icon(CupertinoIcons.checkmark_seal_fill,color: Colors.white,size: MediaQuery.of(context).size.width *0.09,),
         title:
         Row(
           children: [
-            Text("Bonne reponse :   ",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045),),
-            Text("0 sur 4",style: TextStyle(color: Colors.red,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+            Text("Bonne reponse :  ",style: TextStyle(color: Colors.white60,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045),),
+            Text("0 sur 4",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
           ],
         ),
-        subtitle:Text("+  0 XP",style: TextStyle(color: Colors.red,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.04))
-      )
+        subtitle:Row(
+          children: [
+            Text("Gagné : ",style: TextStyle(color: Colors.white60,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045),),
+            Text("0 XP",style: TextStyle(color: Colors.red.shade300,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+          ],
+        ),)
     )));
       Navigator.pop(context);
   }
@@ -82,7 +88,7 @@ class _DebutantPageState extends State<DebutantPage> {
                         borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *0.07))
                       ),
                       child:
-                      quiz1==1?Text("Si tu croises quelqu'un le matin,\nquelle est la salutation la plus courante ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05),)
+                       quiz1==1?Text("Si tu croises quelqu'un le matin,\nquelle est la salutation la plus courante ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05),)
                       :quiz1==2?Text("Que répond-on systématiquement pour accepter une salutation ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05),)
                       :quiz1==3?Text("Comment demande-t-on « Comment va la famille ? »",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05),)
                       :Text("Que signifie « Be flè mi... » ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05),),
@@ -195,8 +201,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                 children: [
                                   Row(
                                     children: [
-                                      Text("Ahou",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
-
+                                      Text("Akwaba",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
                                     ],
                                   ),
                                 ],
@@ -224,7 +229,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                 children: [
                                   Row(
                                     children: [
-                                      Text("N'zue mo",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
+                                      Text("N'zue",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
 
                                     ],
                                   ),
@@ -287,7 +292,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                 children: [
                                   Row(
                                     children: [
-                                      Text("Dibi",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
+                                      Text("Di",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
                                     ],
                                   ),
                                 ],
@@ -329,7 +334,6 @@ class _DebutantPageState extends State<DebutantPage> {
                                     Row(
                                       children: [
                                         Text("Kôni",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
-
                                       ],
                                     ),
                                   ],
@@ -460,7 +464,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                   children: [
                                     Row(
                                       children: [
-                                        Text("Wan yé",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
+                                        Text("ôfouèménou ti kpa ? ",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
 
                                       ],
                                     ),
@@ -489,7 +493,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                   children: [
                                     Row(
                                       children: [
-                                        Text("Sassé kpa",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
+                                        Text("Sassé kpa ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
 
                                       ],
                                     ),
@@ -523,7 +527,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                   children: [
                                     Row(
                                       children: [
-                                        Text("Ba'n mou kôni",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
+                                        Text("Ba'n mou kôni ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
                                         ,
                                       ],
                                     ),
@@ -552,7 +556,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                     children: [
                                       Row(
                                         children: [
-                                          Text("Awlo'n mou \nkôni",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
+                                          Text("Awlo'n mou \nkôni ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
                                         ],
                                       ),
                                     ],
@@ -577,6 +581,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                     setState(() {
                                       note_xp();
                                     });
+                                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ApprentissagePage()), (route)=>false);
                                   },
                                   child:
                                   Container(

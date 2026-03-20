@@ -1,3 +1,4 @@
+import 'package:app1/Pages/Apprentissage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,26 +13,28 @@ class _IntermediairePageState extends State<IntermediairePage> {
   int quiz1=1;
   void note_xp(){
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colors.transparent,duration: Duration(milliseconds: 1500),content: Container(
-      alignment: Alignment.center,
-      height: MediaQuery.of(context).size.height *0.12,
-      width: MediaQuery.of(context).size.width *0.9,
-      decoration: BoxDecoration(
-          color:Color(0xFF2E5AA6),
-          borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *0.1))
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        alignment: Alignment.center,
+        height: MediaQuery.of(context).size.height *0.12,
+        width: MediaQuery.of(context).size.width *0.9,
+        decoration: BoxDecoration(
+            color:Color(0xFF2E5AA6),
+            borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *0.05))
+        ),
+        child:  ListTile(
+          leading: Icon(CupertinoIcons.checkmark_seal_fill,color: Colors.white,size: MediaQuery.of(context).size.width *0.09,),
+          title:
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Bonne reponse :   ",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.06),),
-              Text("0 sur 4",style: TextStyle(color: Colors.red,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.06))
+              Text("Bonne reponse :  ",style: TextStyle(color: Colors.white60,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045),),
+              Text("0 sur 4",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
             ],
           ),
-          Text("+  0 XP",style: TextStyle(color: Colors.red,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.06))
-        ],
-      ),
+          subtitle:Row(
+            children: [
+              Text("Gagné : ",style: TextStyle(color: Colors.white60,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045),),
+              Text("0 XP",style: TextStyle(color: Colors.red.shade300,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+            ],
+          ),)
     )));
     Navigator.pop(context);
   }
@@ -87,7 +90,7 @@ class _IntermediairePageState extends State<IntermediairePage> {
                         quiz1==1?Text("Quelle est la bénédiction finale pour dire « Que Dieu nous garde » ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05),)
                             :quiz1==2?Text("Pour dire « Je suis étudiant », quelle structure utilise-t-on ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05),)
                             :quiz1==3?Text("Quel mot désigne le foyer ou la famille en général ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05),)
-                            :Text("Que signifie l'expression « Nanan m’on » avant de dormir ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05),),
+                            :Text("Que signifie l'expression « owahiman » avant de dormir ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05),),
                       ),
                       SizedBox(height: MediaQuery.of(context).size.height *0.03,),
                       Row(
@@ -331,7 +334,6 @@ class _IntermediairePageState extends State<IntermediairePage> {
                                       Row(
                                         children: [
                                           Text("N ti\nsuclou ba",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
-
                                         ],
                                       ),
                                     ],
@@ -393,7 +395,7 @@ class _IntermediairePageState extends State<IntermediairePage> {
                                     children: [
                                       Row(
                                         children: [
-                                          Text("N fin\nsuclou",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
+                                          Text("N fi\nsuclou",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
                                           ,
                                         ],
                                       ),
@@ -555,7 +557,7 @@ class _IntermediairePageState extends State<IntermediairePage> {
                                       children: [
                                         Row(
                                           children: [
-                                            Text("Dibi",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
+                                            Text("Di",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
                                           ],
                                         ),
                                       ],
@@ -578,6 +580,8 @@ class _IntermediairePageState extends State<IntermediairePage> {
                               GestureDetector(
                                 onTap: (){
                                   note_xp();
+                                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ApprentissagePage()), (route)=>false);
+
                                 },
                                 child:
                                 Container(
@@ -605,6 +609,8 @@ class _IntermediairePageState extends State<IntermediairePage> {
                               GestureDetector(
                                 onTap: (){
                                   note_xp();
+                                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ApprentissagePage()), (route)=>false);
+
                                 },
                                 child:
                                 Container(
@@ -637,6 +643,8 @@ class _IntermediairePageState extends State<IntermediairePage> {
                               GestureDetector(
                                 onTap: (){
                                   note_xp();
+                                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ApprentissagePage()), (route)=>false);
+
                                 },
                                 child:
                                 Container(
@@ -664,6 +672,8 @@ class _IntermediairePageState extends State<IntermediairePage> {
                               GestureDetector(
                                   onTap: (){
                                     note_xp();
+                                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ApprentissagePage()), (route)=>false);
+
                                   },
                                   child:
                                   Container(

@@ -1,3 +1,4 @@
+import 'package:app1/Pages/Apprentissage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,26 +13,28 @@ class _NivodanPageState extends State<NivodanPage> {
   int quiz1=1;
   void note_xp(){
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colors.transparent,duration: Duration(milliseconds: 1500),content: Container(
-      alignment: Alignment.center,
-      height: MediaQuery.of(context).size.height *0.12,
-      width: MediaQuery.of(context).size.width *0.9,
-      decoration: BoxDecoration(
-          color:Color(0xFF2E5AA6),
-          borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *0.1))
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        alignment: Alignment.center,
+        height: MediaQuery.of(context).size.height *0.12,
+        width: MediaQuery.of(context).size.width *0.9,
+        decoration: BoxDecoration(
+            color:Color(0xFF2E5AA6),
+            borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *0.05))
+        ),
+        child:  ListTile(
+          leading: Icon(CupertinoIcons.checkmark_seal_fill,color: Colors.white,size: MediaQuery.of(context).size.width *0.09,),
+          title:
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Bonne reponse :   ",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.06),),
-              Text("0 sur 4",style: TextStyle(color: Colors.red,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.06))
+              Text("Bonne reponse :  ",style: TextStyle(color: Colors.white60,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045),),
+              Text("0 sur 4",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
             ],
           ),
-          Text("+  0 XP",style: TextStyle(color: Colors.red,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.06))
-        ],
-      ),
+          subtitle:Row(
+            children: [
+              Text("Gagné : ",style: TextStyle(color: Colors.white60,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045),),
+              Text("0 XP",style: TextStyle(color: Colors.red.shade300,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+            ],
+          ),)
     )));
     Navigator.pop(context);
   }
@@ -82,7 +85,7 @@ class _NivodanPageState extends State<NivodanPage> {
                             borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *0.07))
                         ),
                         child:
-                        quiz1==1?Text("« Yao n’na » s'adresse à qui ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05),)
+                        quiz1==1?Text("« Ba kan ga » s'adresse à qui ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05),)
                             :quiz1==2?Text("Que signifie littéralement « Nanan m’on » ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05),)
                             :quiz1==3?Text("Verbe pour dire « Habiter » (résidence) ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05),)
                             :Text("Sens de « N’zue mo » ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05),),
@@ -523,7 +526,7 @@ class _NivodanPageState extends State<NivodanPage> {
                                       Row(
                                         children: [
                                           Text("Fin",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
-                                          ,
+
                                         ],
                                       ),
                                     ],
@@ -574,6 +577,8 @@ class _NivodanPageState extends State<NivodanPage> {
                               GestureDetector(
                                 onTap: (){
                                   note_xp();
+                                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ApprentissagePage()), (route)=>false);
+
                                 },
                                 child:
                                 Container(
@@ -601,6 +606,8 @@ class _NivodanPageState extends State<NivodanPage> {
                               GestureDetector(
                                 onTap: (){
                                   note_xp();
+                                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ApprentissagePage()), (route)=>false);
+
                                 },
                                 child:
                                 Container(
@@ -633,6 +640,8 @@ class _NivodanPageState extends State<NivodanPage> {
                               GestureDetector(
                                 onTap: (){
                                   note_xp();
+                                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ApprentissagePage()), (route)=>false);
+
                                 },
                                 child:
                                 Container(
@@ -660,6 +669,8 @@ class _NivodanPageState extends State<NivodanPage> {
                               GestureDetector(
                                   onTap: (){
                                     note_xp();
+                                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ApprentissagePage()), (route)=>false);
+
                                   },
                                   child:
                                   Container(
