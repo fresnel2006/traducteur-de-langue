@@ -36,7 +36,6 @@ class _MenuPageState extends State<MenuPage> {
                 ),
 
                 SizedBox(height: MediaQuery.of(context).size.height *0.04,),
-
                 GestureDetector(
                   onTap: (){
 
@@ -46,12 +45,24 @@ class _MenuPageState extends State<MenuPage> {
                       height: MediaQuery.of(context).size.height *0.07,
                       width: MediaQuery.of(context).size.width *1,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          SizedBox(width: MediaQuery.of(context).size.width *0.04,),
-                          Icon(Icons.account_circle,color:Color(0xFF2E5AA6),size: MediaQuery.of(context).size.width *0.07,),
-                          SizedBox(width: MediaQuery.of(context).size.width *0.06,),
-                          Text("Profil",style: TextStyle(fontFamily: "Poppins",color:Color(0xFF2E5AA6),fontSize: MediaQuery.of(context).size.width *0.053),),
-                        ],
+                          Row(
+                            children: [
+                              SizedBox(width: MediaQuery.of(context).size.width *0.04,),
+                              Icon(Icons.account_circle,color:Color(0xFF2E5AA6),size: MediaQuery.of(context).size.width *0.07,),
+                              SizedBox(width: MediaQuery.of(context).size.width *0.06,),
+                              Text("Profil",style: TextStyle(fontFamily: "Poppins",color:Color(0xFF2E5AA6),fontSize: MediaQuery.of(context).size.width *0.053),),
+
+                            ],
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            width: MediaQuery.of(context).size.width *0.1,
+                            child:Icon(CupertinoIcons.arrowshape_turn_up_right,color:Color(0xFF2E5AA6))
+
+                          )
+                          ],
                       )
                   )
                   ,),
@@ -60,15 +71,28 @@ class _MenuPageState extends State<MenuPage> {
 
                   },
                   child: Container(
-                      alignment: Alignment.center,
+
                       height: MediaQuery.of(context).size.height *0.07,
                       width: MediaQuery.of(context).size.width *1,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          SizedBox(width: MediaQuery.of(context).size.width *0.04,),
-                          Icon(Icons.list,color:Color(0xFF2E5AA6),size: MediaQuery.of(context).size.width *0.07,),
-                          SizedBox(width: MediaQuery.of(context).size.width *0.06,),
-                          Text("Historique",style: TextStyle(fontFamily: "Poppins",color:Color(0xFF2E5AA6),fontSize: MediaQuery.of(context).size.width *0.053),),
+                          Row(
+
+                            children: [
+                              SizedBox(width: MediaQuery.of(context).size.width *0.04,),
+                              Icon(Icons.list,color:Color(0xFF2E5AA6),size: MediaQuery.of(context).size.width *0.07,),
+                              SizedBox(width: MediaQuery.of(context).size.width *0.06,),
+                              Text("Historique",style: TextStyle(fontFamily: "Poppins",color:Color(0xFF2E5AA6),fontSize: MediaQuery.of(context).size.width *0.053),),
+
+                            ],
+                          ),
+                          Container(
+                              alignment: Alignment.center,
+                              width: MediaQuery.of(context).size.width *0.1,
+                              child:Icon(CupertinoIcons.arrowshape_turn_up_right,color:Color(0xFF2E5AA6))
+
+                          )
                         ],
                       )
                   )
@@ -81,15 +105,25 @@ class _MenuPageState extends State<MenuPage> {
                         alignment: Alignment.center,
                         height: MediaQuery.of(context).size.height *0.07,
                         width: MediaQuery.of(context).size.width *1,
-
                         child: Row(
-
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            SizedBox(width: MediaQuery.of(context).size.width *0.04,),
-                            Icon(Icons.translate,color:Color(0xFF2E5AA6),size: MediaQuery.of(context).size.width *0.07,),
-                            SizedBox(width: MediaQuery.of(context).size.width *0.06,),
-                            Text("Traducteur",style: TextStyle(fontFamily: "Poppins",color:Color(0xFF2E5AA6),fontSize: MediaQuery.of(context).size.width *0.053),),
-                            ],
+                            Row(
+                              children: [
+                                SizedBox(width: MediaQuery.of(context).size.width *0.04,),
+                                Icon(Icons.translate,color:Color(0xFF2E5AA6),size: MediaQuery.of(context).size.width *0.07,),
+                                SizedBox(width: MediaQuery.of(context).size.width *0.06,),
+                                Text("Traducteur",style: TextStyle(fontFamily: "Poppins",color:Color(0xFF2E5AA6),fontSize: MediaQuery.of(context).size.width *0.053),),
+
+                              ],
+                            ),
+                            Container(
+                                alignment: Alignment.center,
+                                width: MediaQuery.of(context).size.width *0.1,
+                                child:Icon(CupertinoIcons.arrowshape_turn_up_right,color:Color(0xFF2E5AA6))
+
+                            )
+                          ],
                         )
                     )
                     ,),
@@ -102,15 +136,58 @@ class _MenuPageState extends State<MenuPage> {
                       height: MediaQuery.of(context).size.height *0.07,
                       width: MediaQuery.of(context).size.width *1,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          SizedBox(width: MediaQuery.of(context).size.width *0.04,),
-                          Icon(Icons.school_outlined,color:Color(0xFF2E5AA6),size: MediaQuery.of(context).size.width *0.07,),
-                          SizedBox(width: MediaQuery.of(context).size.width *0.06,),
-                          Text("Apprentissage",style: TextStyle(fontFamily: "Poppins",color:Color(0xFF2E5AA6),fontSize: MediaQuery.of(context).size.width *0.053),),
-                          ],
+                          Row(
+                            children: [
+                              SizedBox(width: MediaQuery.of(context).size.width *0.04,),
+                              Icon(Icons.school_outlined,color:Color(0xFF2E5AA6),size: MediaQuery.of(context).size.width *0.07,),
+                              SizedBox(width: MediaQuery.of(context).size.width *0.06,),
+                              Text("Apprentissage",style: TextStyle(fontFamily: "Poppins",color:Color(0xFF2E5AA6),fontSize: MediaQuery.of(context).size.width *0.053),),
+
+                            ],
+                          ),
+                          Container(
+                              alignment: Alignment.center,
+                              width: MediaQuery.of(context).size.width *0.1,
+                              child:Icon(CupertinoIcons.arrowshape_turn_up_right,color:Color(0xFF2E5AA6))
+
+                          )
+
+                        ],
                       )
                   )
                   ,),
+                GestureDetector(
+                  onTap: (){
+
+                  },
+                  child: Container(
+                      alignment: Alignment.center,
+                      height: MediaQuery.of(context).size.height *0.07,
+                      width: MediaQuery.of(context).size.width *1,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              SizedBox(width: MediaQuery.of(context).size.width *0.04,),
+                              Icon(CupertinoIcons.globe,color:Color(0xFF2E5AA6),size: MediaQuery.of(context).size.width *0.07,),
+                              SizedBox(width: MediaQuery.of(context).size.width *0.06,),
+                              Text("Communauté",style: TextStyle(fontFamily: "Poppins",color:Color(0xFF2E5AA6),fontSize: MediaQuery.of(context).size.width *0.053),),
+                            ],
+                          ),
+                          Container(
+                              alignment: Alignment.center,
+                              width: MediaQuery.of(context).size.width *0.1,
+                              child:Icon(CupertinoIcons.arrowshape_turn_up_right,color:Color(0xFF2E5AA6))
+
+                          )
+                          ],
+                      )
+                  )
+                  ,)
+                ,
                 GestureDetector(
                   onTap: (){
                     Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ParametrePage()), (route)=>false);
@@ -120,17 +197,27 @@ class _MenuPageState extends State<MenuPage> {
                       height: MediaQuery.of(context).size.height *0.07,
                       width: MediaQuery.of(context).size.width *1,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          SizedBox(width: MediaQuery.of(context).size.width *0.04,),
-                          Icon(Icons.settings,color:Color(0xFF2E5AA6),size: MediaQuery.of(context).size.width *0.07,),
-                          SizedBox(width: MediaQuery.of(context).size.width *0.06,),
-                          Text("Paramètre",style: TextStyle(fontFamily: "Poppins",color:Color(0xFF2E5AA6),fontSize: MediaQuery.of(context).size.width *0.053),),
-                        ],
+                          Row(
+                            children: [
+                              SizedBox(width: MediaQuery.of(context).size.width *0.04,),
+                              Icon(Icons.settings,color:Color(0xFF2E5AA6),size: MediaQuery.of(context).size.width *0.07,),
+                              SizedBox(width: MediaQuery.of(context).size.width *0.06,),
+                              Text("Paramètre",style: TextStyle(fontFamily: "Poppins",color:Color(0xFF2E5AA6),fontSize: MediaQuery.of(context).size.width *0.053),),
+                            ],
+                          ),
+                          Container(
+                              alignment: Alignment.center,
+                              width: MediaQuery.of(context).size.width *0.1,
+                              child:Icon(CupertinoIcons.arrowshape_turn_up_right,color:Color(0xFF2E5AA6))
+
+                          )
+                         ],
                       )
                   )
                   ,),
                 SizedBox(height: MediaQuery.of(context).size.height *0.08,),
-                Container(child: Lottie.asset("assets/animations/01_Finishig Studies.json",width: MediaQuery.of(context).size.width *0.62),)
                 ]
             )
           ],

@@ -17,12 +17,12 @@ class _DebutantPageState extends State<DebutantPage> {
 
   void reponse_correct(){
     setState(() {
-      bonne_reponse=1;
+      bonne_reponse+=1;
     });
   }
   void reponse_mauvaise(){
     setState(() {
-      mauvaise_reponse=1;
+      mauvaise_reponse+=1;
     });
   }
 
@@ -42,21 +42,22 @@ class _DebutantPageState extends State<DebutantPage> {
         Row(
           children: [
             Text("Bonne reponse :  ",style: TextStyle(color: Colors.white60,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045),),
-            Text("0 sur 4",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+            Text("${bonne_reponse} sur 4",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
           ],
         ),
         subtitle:Row(
           children: [
             Text("Gagné : ",style: TextStyle(color: Colors.white60,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045),),
-            Text("0 XP",style: TextStyle(color: Colors.red.shade300,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+            Text("${bonne_reponse*1.5} XP",style: TextStyle(color: Colors.red.shade300,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
           ],
         ),)
     )));
-      Navigator.pop(context);
       setState(() {
         xp=xp+(bonne_reponse*1.5);
       });
       sauvegarder_donnee();
+      Navigator.pop(context);
+
   }
   int quiz1=1;
   var xp;

@@ -20,13 +20,18 @@ class ApprentissagePage extends StatefulWidget {
 
 class _ApprentissagePageState extends State<ApprentissagePage> {
   var xp;
-
+  var niveau;
   Future <void> charger_donnee() async{
     final perfs=await SharedPreferences.getInstance();
     setState(() {
       xp=perfs.getDouble("xp")??0;
     });
+    setState(() {
+      niveau=xp/100;
+    });
+
   }
+
   @override
   void initState(){
     super.initState();
@@ -77,7 +82,7 @@ class _ApprentissagePageState extends State<ApprentissagePage> {
                         children: [
                           LinearProgressIndicator(
                             color: Colors.green,
-                            value: 0.0,
+                            value: niveau,
                           ),
                           
                         ],

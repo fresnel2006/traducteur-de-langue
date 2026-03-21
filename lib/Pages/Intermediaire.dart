@@ -18,12 +18,12 @@ class _IntermediairePageState extends State<IntermediairePage> {
 
   void reponse_correct(){
     setState(() {
-      bonne_reponse=1;
+      bonne_reponse+=1;
     });
   }
   void reponse_mauvaise(){
     setState(() {
-      mauvaise_reponse=1;
+      mauvaise_reponse+=1;
     });
   }
   void note_xp(){
@@ -47,13 +47,13 @@ class _IntermediairePageState extends State<IntermediairePage> {
           subtitle:Row(
             children: [
               Text("Gagné : ",style: TextStyle(color: Colors.white60,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045),),
-              Text("0 XP",style: TextStyle(color: Colors.red.shade300,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
+              Text("${bonne_reponse*2} XP",style: TextStyle(color: Colors.red.shade300,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045))
             ],
           ),)
     )));
     Navigator.pop(context);
     setState(() {
-      xp=xp+(bonne_reponse*1.5);
+      xp=xp+(bonne_reponse*2);
     });
     sauvegarder_donnee();
   }
