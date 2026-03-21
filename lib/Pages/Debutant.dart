@@ -1,6 +1,7 @@
 import 'package:app1/Pages/Apprentissage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class DebutantPage extends StatefulWidget {
   const DebutantPage({super.key});
@@ -10,6 +11,20 @@ class DebutantPage extends StatefulWidget {
 }
 
 class _DebutantPageState extends State<DebutantPage> {
+
+  int bonne_reponse=0;
+  int mauvaise_reponse=0;
+
+  void reponse_correct(){
+    setState(() {
+      bonne_reponse=1;
+    });
+  }
+  void reponse_mauvaise(){
+    setState(() {
+      mauvaise_reponse=1;
+    });
+  }
 
 
   void note_xp(){
@@ -38,8 +53,29 @@ class _DebutantPageState extends State<DebutantPage> {
         ),)
     )));
       Navigator.pop(context);
+      setState(() {
+        xp=xp+(bonne_reponse*1.5);
+      });
+      sauvegarder_donnee();
   }
   int quiz1=1;
+  var xp;
+  Future <void> sauvegarder_donnee() async{
+    final perfs=await SharedPreferences.getInstance();
+    await perfs.setDouble("xp", xp);
+  }
+
+  Future <void> charger_donnee() async{
+    final perfs=await SharedPreferences.getInstance();
+    setState(() {
+      xp=perfs.getDouble("xp")??0;
+    });
+  }
+  @override
+  void initState(){
+    super.initState();
+    charger_donnee();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -171,8 +207,44 @@ class _DebutantPageState extends State<DebutantPage> {
                         )
                       ],
                     ),
+                    SizedBox(height: MediaQuery.of(context).size.height *0.033,),
+                    Container(
+                        child:
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                              child:
+                              Row(
+                                children: [
+                                  Text(bonne_reponse.toString(),style: TextStyle(fontSize: MediaQuery.of(context).size.width *0.1,color: Colors.white54,fontFamily: "Poppins"),),
+                                  SizedBox(width: MediaQuery.of(context).size.width *0.03,),
+                                  Icon(CupertinoIcons.checkmark_seal_fill,color: Colors.white,size: MediaQuery.of(context).size.width *0.15)
+                                ],
+                              ),
+                            ),
+                            Container(
+                              height: MediaQuery.of(context).size.height *0.1,
+                              width: MediaQuery.of(context).size.width *0.01,
+                              decoration: BoxDecoration(
+                                  color: Colors.white60
+                              ),
+                            ),
+                            Container(
+                                child: Row(
+                                  children: [
+                                    Text(mauvaise_reponse.toString(),style: TextStyle(fontSize: MediaQuery.of(context).size.width *0.1,color: Colors.white54,fontFamily: "Poppins")),
+                                    SizedBox(width: MediaQuery.of(context).size.width *0.03,),
+                                    Icon(Icons.close_rounded,color: Colors.red.shade400,size: MediaQuery.of(context).size.width *0.15,)
+                                  ],
+                                )
+                            )
+
+                          ],
+                        )
+                    ),
                     //premiere question
-                    SizedBox(height: MediaQuery.of(context).size.height *0.2,),
+                    SizedBox(height: MediaQuery.of(context).size.height *0.06,),
                     quiz1==1?Row(
                       spacing: MediaQuery.of(context).size.height *0.01,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -185,6 +257,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                 setState(() {
                                   quiz1=2;
                                 });
+                                reponse_correct();
                               },
                               child:
                             Container(
@@ -213,6 +286,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                 setState(() {
                                   quiz1=2;
                                 });
+                                reponse_mauvaise();
                               },
                               child:
                             Container(
@@ -247,6 +321,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                   setState(() {
                                     quiz1=2;
                                   });
+                                  reponse_mauvaise();
                                 },
                                 child:
                             Container(
@@ -276,6 +351,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                     setState(() {
                                       quiz1=2;
                                     });
+                                    reponse_mauvaise();
                                   },
                                   child:
                             Container(
@@ -317,6 +393,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                 setState(() {
                                   quiz1=3;
                                 });
+                                reponse_correct();
                               },
                               child:
                               Container(
@@ -333,7 +410,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                   children: [
                                     Row(
                                       children: [
-                                        Text("Kôni",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
+                                        Text("Bahanio\nBa arèo",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
                                       ],
                                     ),
                                   ],
@@ -345,6 +422,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                 setState(() {
                                   quiz1=3;
                                 });
+                                reponse_mauvaise();
                               },
                               child:
                               Container(
@@ -378,6 +456,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                 setState(() {
                                   quiz1=3;
                                 });
+                                reponse_mauvaise();
                               },
                               child:
                               Container(
@@ -407,6 +486,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                   setState(() {
                                     quiz1=3;
                                   });
+                                  reponse_mauvaise();
                                 },
                                 child:
                                 Container(
@@ -448,6 +528,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                 setState(() {
                                   quiz1=4;
                                 });
+                                reponse_correct();
                               },
                               child:
                               Container(
@@ -464,8 +545,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                   children: [
                                     Row(
                                       children: [
-                                        Text("ôfouèménou ti kpa ? ",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
-
+                                        Text("ôfouèménou\nti kpa ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
                                       ],
                                     ),
                                   ],
@@ -477,6 +557,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                 setState(() {
                                   quiz1=4;
                                 });
+                                reponse_mauvaise();
                               },
                               child:
                               Container(
@@ -511,6 +592,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                 setState(() {
                                   quiz1=4;
                                 });
+                                reponse_mauvaise();
                               },
                               child:
                               Container(
@@ -540,6 +622,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                   setState(() {
                                     quiz1=4;
                                   });
+                                  reponse_mauvaise();
                                 },
                                 child:
                                 Container(
@@ -578,6 +661,7 @@ class _DebutantPageState extends State<DebutantPage> {
                               children: [
                                 GestureDetector(
                                   onTap: (){
+                                    reponse_correct();
                                     setState(() {
                                       note_xp();
                                     });
@@ -608,6 +692,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                 ),
                                 GestureDetector(
                                   onTap: (){
+                                    reponse_mauvaise();
                                     setState(() {
                                       note_xp();
                                     });
@@ -628,7 +713,6 @@ class _DebutantPageState extends State<DebutantPage> {
                                         Row(
                                           children: [
                                             Text("Je suis de",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
-
                                           ],
                                         ),
                                       ],
@@ -642,6 +726,7 @@ class _DebutantPageState extends State<DebutantPage> {
                               children: [
                                 GestureDetector(
                                   onTap: (){
+                                    reponse_mauvaise();
                                     setState(() {
                                       note_xp();
                                     });
@@ -671,6 +756,7 @@ class _DebutantPageState extends State<DebutantPage> {
                                 ),
                                 GestureDetector(
                                     onTap: (){
+                                      reponse_mauvaise();
                                       setState(() {
                                         note_xp();
                                       });
@@ -708,7 +794,8 @@ class _DebutantPageState extends State<DebutantPage> {
                 )
 
               ],
-            )
+            ),
+
           ],
         ),
       )

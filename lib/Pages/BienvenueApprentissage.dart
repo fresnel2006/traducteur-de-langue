@@ -70,7 +70,7 @@ class _BienvenueApprentissagePageState extends State<BienvenueApprentissagePage>
                 SizedBox(height: MediaQuery.of(context).size.height *0.03,),
                 index==1?Container(child: Text("Beflêmi Kouadio propose\ndes méthodes d'apprentissage \nrapide et éfficace",textAlign: TextAlign.center,style: TextStyle(fontFamily: "Poppins",color: Colors.black45,fontSize: MediaQuery.of(context).size.width *0.04),),
                 ).animate().fadeIn(delay: Duration(milliseconds: 600)):index==2?Container(child: Text("Relevez le défi : \nrépondez aux questions \nen langue baoulé et \ncumulez un maximum de points !",textAlign: TextAlign.center,style: TextStyle(fontFamily: "Poppins",color: Colors.black45,fontSize: MediaQuery.of(context).size.width *0.04),),
-                ).animate().fadeIn(delay: Duration(milliseconds: 600)):index==3?Container(child: Text("Bla yé Cô\nvient et allons s'y\net apprennons le baoulé",textAlign: TextAlign.center,style: TextStyle(fontFamily: "Poppins",color: Colors.black45,fontSize: MediaQuery.of(context).size.width *0.04),),)
+                ).animate().fadeIn(delay: Duration(milliseconds: 600)):index==3?Container(child: Text("Bla yé Kô\nvient et allons s'y\net apprennons le baoulé",textAlign: TextAlign.center,style: TextStyle(fontFamily: "Poppins",color: Colors.black45,fontSize: MediaQuery.of(context).size.width *0.04),),)
                     .animate().fadeIn(delay: Duration(milliseconds: 600)):Text(""),
               ],
             ),

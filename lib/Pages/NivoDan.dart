@@ -1,6 +1,7 @@
 import 'package:app1/Pages/Apprentissage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class NivodanPage extends StatefulWidget {
   const NivodanPage({super.key});
@@ -11,6 +12,18 @@ class NivodanPage extends StatefulWidget {
 
 class _NivodanPageState extends State<NivodanPage> {
   int quiz1=1;
+  int bonne_reponse=0;
+  int mauvaise_reponse=0;
+  void reponse_correct(){
+    setState(() {
+      bonne_reponse=1;
+    });
+  }
+  void reponse_mauvaise(){
+    setState(() {
+      mauvaise_reponse=1;
+    });
+  }
   void note_xp(){
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colors.transparent,duration: Duration(milliseconds: 1500),content: Container(
         alignment: Alignment.center,
@@ -37,6 +50,28 @@ class _NivodanPageState extends State<NivodanPage> {
           ),)
     )));
     Navigator.pop(context);
+    setState(() {
+      xp=xp+(bonne_reponse*1.5);
+    });
+    sauvegarder_donnee();
+  }
+  Future <void> sauvegarder_donnee() async{
+    final perfs=await SharedPreferences.getInstance();
+    await perfs.setDouble("xp", xp);
+  }
+  var xp;
+
+
+  Future <void> charger_donnee() async{
+    final perfs=await SharedPreferences.getInstance();
+    setState(() {
+      xp=perfs.getDouble("xp")??0;
+    });
+  }
+  @override
+  void initState(){
+    super.initState();
+    charger_donnee();
   }
   @override
   Widget build(BuildContext context) {
@@ -86,9 +121,9 @@ class _NivodanPageState extends State<NivodanPage> {
                         ),
                         child:
                         quiz1==1?Text("« Ba kan ga » s'adresse à qui ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05),)
-                            :quiz1==2?Text("Que signifie littéralement « Nanan m’on » ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05),)
+                            :quiz1==2?Text("Que signifie littéralement « Nannan » ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05),)
                             :quiz1==3?Text("Verbe pour dire « Habiter » (résidence) ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05),)
-                            :Text("Sens de « N’zue mo » ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05),),
+                            :Text("Sens de « N’zue o koumi » ?",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05),),
                       ),
                       SizedBox(height: MediaQuery.of(context).size.height *0.03,),
                       Row(
@@ -168,8 +203,45 @@ class _NivodanPageState extends State<NivodanPage> {
                           )
                         ],
                       ),
+                      SizedBox(height: MediaQuery.of(context).size.height *0.033,),
+                      Container(
+                          child:
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Container(
+                                child:
+                                Row(
+                                  children: [
+                                    Text(bonne_reponse.toString(),style: TextStyle(fontSize: MediaQuery.of(context).size.width *0.1,color: Colors.white54,fontFamily: "Poppins"),),
+                                    SizedBox(width: MediaQuery.of(context).size.width *0.03,),
+                                    Icon(CupertinoIcons.checkmark_seal_fill,color: Colors.white,size: MediaQuery.of(context).size.width *0.15)
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                height: MediaQuery.of(context).size.height *0.1,
+                                width: MediaQuery.of(context).size.width *0.01,
+                                decoration: BoxDecoration(
+                                    color: Colors.white60
+                                ),
+                              ),
+                              Container(
+                                  child: Row(
+                                    children: [
+                                      Text(mauvaise_reponse.toString(),style: TextStyle(fontSize: MediaQuery.of(context).size.width *0.1,color: Colors.white54,fontFamily: "Poppins")),
+                                      SizedBox(width: MediaQuery.of(context).size.width *0.03,),
+                                      Icon(Icons.close_rounded,color: Colors.red.shade400,size: MediaQuery.of(context).size.width *0.15,)
+                                    ],
+                                  )
+                              )
+
+                            ],
+                          )
+                      ),
                       //premiere question
-                      SizedBox(height: MediaQuery.of(context).size.height *0.2,),
+                      SizedBox(height: MediaQuery.of(context).size.height *0.06,),
+
                       quiz1==1?Row(
                         spacing: MediaQuery.of(context).size.height *0.01,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -182,6 +254,7 @@ class _NivodanPageState extends State<NivodanPage> {
                                   setState(() {
                                     quiz1=2;
                                   });
+                                  reponse_correct();
                                 },
                                 child:
                                 Container(
@@ -211,6 +284,7 @@ class _NivodanPageState extends State<NivodanPage> {
                                   setState(() {
                                     quiz1=2;
                                   });
+                                  reponse_mauvaise();
                                 },
                                 child:
                                 Container(
@@ -244,6 +318,7 @@ class _NivodanPageState extends State<NivodanPage> {
                                   setState(() {
                                     quiz1=2;
                                   });
+                                  reponse_mauvaise();
                                 },
                                 child:
                                 Container(
@@ -273,6 +348,7 @@ class _NivodanPageState extends State<NivodanPage> {
                                     setState(() {
                                       quiz1=2;
                                     });
+                                    reponse_mauvaise();
                                   },
                                   child:
                                   Container(
@@ -314,6 +390,7 @@ class _NivodanPageState extends State<NivodanPage> {
                                   setState(() {
                                     quiz1=3;
                                   });
+                                  reponse_correct();
                                 },
                                 child:
                                 Container(
@@ -330,7 +407,7 @@ class _NivodanPageState extends State<NivodanPage> {
                                     children: [
                                       Row(
                                         children: [
-                                          Text("Que les ancêtres\nte gardent",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
+                                          Text("Grand père",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
                                         ],
                                       ),
                                     ],
@@ -342,6 +419,7 @@ class _NivodanPageState extends State<NivodanPage> {
                                   setState(() {
                                     quiz1=3;
                                   });
+                                  reponse_mauvaise();
                                 },
                                 child:
                                 Container(
@@ -359,7 +437,6 @@ class _NivodanPageState extends State<NivodanPage> {
                                       Row(
                                         children: [
                                           Text("Bonne nuit",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
-
                                         ],
                                       ),
                                     ],
@@ -376,6 +453,7 @@ class _NivodanPageState extends State<NivodanPage> {
                                   setState(() {
                                     quiz1=3;
                                   });
+                                  reponse_mauvaise();
                                 },
                                 child:
                                 Container(
@@ -405,6 +483,7 @@ class _NivodanPageState extends State<NivodanPage> {
                                     setState(() {
                                       quiz1=3;
                                     });
+                                    reponse_mauvaise();
                                   },
                                   child:
                                   Container(
@@ -446,6 +525,7 @@ class _NivodanPageState extends State<NivodanPage> {
                                   setState(() {
                                     quiz1=4;
                                   });
+                                  reponse_mauvaise();
                                 },
                                 child:
                                 Container(
@@ -462,7 +542,7 @@ class _NivodanPageState extends State<NivodanPage> {
                                     children: [
                                       Row(
                                         children: [
-                                          Text("Tran",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
+                                          Text("Fi",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
 
                                         ],
                                       ),
@@ -475,6 +555,7 @@ class _NivodanPageState extends State<NivodanPage> {
                                   setState(() {
                                     quiz1=4;
                                   });
+                                  reponse_mauvaise();
                                 },
                                 child:
                                 Container(
@@ -509,6 +590,7 @@ class _NivodanPageState extends State<NivodanPage> {
                                   setState(() {
                                     quiz1=4;
                                   });
+                                  reponse_correct();
                                 },
                                 child:
                                 Container(
@@ -525,7 +607,7 @@ class _NivodanPageState extends State<NivodanPage> {
                                     children: [
                                       Row(
                                         children: [
-                                          Text("Fin",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
+                                          Text("Tran",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.width *0.05,fontFamily: "Poppins"),)
 
                                         ],
                                       ),
@@ -538,6 +620,7 @@ class _NivodanPageState extends State<NivodanPage> {
                                     setState(() {
                                       quiz1=4;
                                     });
+                                    reponse_mauvaise();
                                   },
                                   child:
                                   Container(
@@ -563,8 +646,6 @@ class _NivodanPageState extends State<NivodanPage> {
                               )
                             ],
                           )
-
-
                         ],
                       ):
                       quiz1==4?Row(
@@ -578,7 +659,7 @@ class _NivodanPageState extends State<NivodanPage> {
                                 onTap: (){
                                   note_xp();
                                   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ApprentissagePage()), (route)=>false);
-
+                                  reponse_mauvaise();
                                 },
                                 child:
                                 Container(
@@ -607,7 +688,7 @@ class _NivodanPageState extends State<NivodanPage> {
                                 onTap: (){
                                   note_xp();
                                   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ApprentissagePage()), (route)=>false);
-
+                                  reponse_mauvaise();
                                 },
                                 child:
                                 Container(
@@ -641,7 +722,7 @@ class _NivodanPageState extends State<NivodanPage> {
                                 onTap: (){
                                   note_xp();
                                   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ApprentissagePage()), (route)=>false);
-
+                                  reponse_mauvaise();
                                 },
                                 child:
                                 Container(
@@ -670,7 +751,7 @@ class _NivodanPageState extends State<NivodanPage> {
                                   onTap: (){
                                     note_xp();
                                     Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ApprentissagePage()), (route)=>false);
-
+                                    reponse_correct();
                                   },
                                   child:
                                   Container(

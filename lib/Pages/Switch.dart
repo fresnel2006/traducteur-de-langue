@@ -21,10 +21,12 @@ class _SwitchPageState extends State<SwitchPage> {
         mainScreenTapClose: true,
         mainScreenOverlayColor: Colors.black12,
         angle: 0,
+
         shadowLayer1Color: Colors.black12,
         shadowLayer2Color: Colors.black26,
         showShadow: true,
-        slideWidth: MediaQuery.of(context).size.width *0.82,
+        slideWidth: MediaQuery.of(context).size.width *0.85,
+
 
 
 

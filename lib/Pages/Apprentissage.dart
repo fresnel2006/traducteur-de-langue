@@ -9,6 +9,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:lottie/lottie.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ApprentissagePage extends StatefulWidget {
   const ApprentissagePage({super.key});
@@ -18,10 +19,24 @@ class ApprentissagePage extends StatefulWidget {
 }
 
 class _ApprentissagePageState extends State<ApprentissagePage> {
+  var xp;
 
+  Future <void> charger_donnee() async{
+    final perfs=await SharedPreferences.getInstance();
+    setState(() {
+      xp=perfs.getDouble("xp")??0;
+    });
+  }
+  @override
+  void initState(){
+    super.initState();
+    charger_donnee();
+  }
   @override
   Widget build(BuildContext context) {
     var page;
+    var nb_xp;
+    
     return Scaffold(
       backgroundColor: Colors.white,
       body:
@@ -62,7 +77,7 @@ class _ApprentissagePageState extends State<ApprentissagePage> {
                         children: [
                           LinearProgressIndicator(
                             color: Colors.green,
-                            value: 0.6,
+                            value: 0.0,
                           ),
                           
                         ],
@@ -387,7 +402,7 @@ class _ApprentissagePageState extends State<ApprentissagePage> {
               margin: EdgeInsets.only(top:MediaQuery.of(context).size.height *0.115,left: MediaQuery.of(context).size.width *0.7 ),
               child: Row(
                 children: [
-                  Text(" 0",style: TextStyle(color: Colors.red,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
+                  Text(xp.toString(),style: TextStyle(color: Colors.red,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
                   Text(" XP",style: TextStyle(color: Color(0xFF2E5AA6),fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.045)),
                   ],
               ),
