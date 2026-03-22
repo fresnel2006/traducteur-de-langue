@@ -1,5 +1,7 @@
 import 'package:app1/Pages/BienvenueApprentissage.dart';
 import 'package:app1/Pages/Parametre.dart';
+import 'package:app1/Pages/Switch.dart';
+import 'package:app1/Pages/Traducteur.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -31,7 +33,32 @@ class _MenuPageState extends State<MenuPage> {
                       bottomRight: Radius.circular(MediaQuery.of(context).size.width *0.2)
                     )
                   ),
+                  child: Column(
+                    children: [
+                      SizedBox(height: MediaQuery.of(context).size.height *0.05,),
+                      Row(
+                        children: [
+                          Container(
+                              alignment: AlignmentDirectional.topStart,
+                              child: Container(
+                                alignment: Alignment.center,
+                                width: MediaQuery.of(context).size.width *0.3,
+                                child: Text("Arè ho",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.06),),
+                              )
+                          ),
+                          Icon(CupertinoIcons.hand_point_right_fill,size: MediaQuery.of(context).size.width *0.12,color: Colors.white,)
+                        ],
+                      ),
+                      SizedBox(height: MediaQuery.of(context).size.height *0.015,),
 
+                      ListTile(
+                        leading: Icon(Icons.account_circle,color: Colors.white,size: MediaQuery.of(context).size.width *0.1,),
+                        title: Text("Traore",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05)),
+                        subtitle: Text("Ange fresnel",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05)),
+                      )
+                      
+                    ],
+                  ),
 
                 ),
 
@@ -100,6 +127,8 @@ class _MenuPageState extends State<MenuPage> {
                 GestureDetector(
                     onTap: (){
 
+                        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>TraducteurPage()), (route)=>false);
+
                     },
                     child: Container(
                         alignment: Alignment.center,
@@ -151,7 +180,6 @@ class _MenuPageState extends State<MenuPage> {
                               alignment: Alignment.center,
                               width: MediaQuery.of(context).size.width *0.1,
                               child:Icon(CupertinoIcons.arrowshape_turn_up_right,color:Color(0xFF2E5AA6))
-
                           )
 
                         ],
@@ -160,7 +188,7 @@ class _MenuPageState extends State<MenuPage> {
                   ,),
                 GestureDetector(
                   onTap: (){
-
+                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>SwitchPage()), (route)=>false);
                   },
                   child: Container(
                       alignment: Alignment.center,

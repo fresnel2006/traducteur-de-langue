@@ -1,3 +1,4 @@
+import 'package:app1/Pages/Communaute.dart';
 import 'package:app1/Pages/Traducteur.dart';
 import 'package:app1/Pages/Menu.dart';
 import 'package:flutter/material.dart';
@@ -17,11 +18,10 @@ class _SwitchPageState extends State<SwitchPage> {
       backgroundColor: Colors.white,
       body:ZoomDrawer(
         style: DrawerStyle.defaultStyle,
-        menuScreen: MenuPage(), mainScreen: TraducteurPage(),
+        menuScreen: MenuPage(), mainScreen: CommunautePage(),
         mainScreenTapClose: true,
         mainScreenOverlayColor: Colors.black12,
         angle: 0,
-
         shadowLayer1Color: Colors.black12,
         shadowLayer2Color: Colors.black26,
         showShadow: true,

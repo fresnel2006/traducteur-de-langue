@@ -1,3 +1,6 @@
+import 'package:app1/Pages/Communaute.dart';
+import 'package:app1/Pages/Switch.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
@@ -81,9 +84,8 @@ class _TraducteurPageState extends State<TraducteurPage> {
                       alignment: Alignment.center,
                       width: MediaQuery.of(context).size.width *0.15,
                       child: IconButton(onPressed: (){
-                        ZoomDrawer.of(context)!.toggle();
-
-                      }, icon: Icon(Icons.menu_open_outlined,color: sun?Color(0xFF2E5AA6):Colors.white,size: MediaQuery.of(context).size.width *0.08,),)
+                        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>SwitchPage()),(route)=>false);
+                      }, icon: Icon(CupertinoIcons.arrowshape_turn_up_left_2_fill,color: sun?Color(0xFF2E5AA6):Colors.white,size: MediaQuery.of(context).size.width *0.08,),)
                     ),
                     logo?GestureDetector(
                       onTap: (){

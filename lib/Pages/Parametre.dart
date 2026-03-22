@@ -13,6 +13,7 @@ class _ParametrePageState extends State<ParametrePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Stack(
           children: [
@@ -47,21 +48,7 @@ class _ParametrePageState extends State<ParametrePage> {
                   ),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height *0.06),
-                Container(
-                  child:Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.06),
-                        child: Text("mode sombre",style: TextStyle(fontFamily: "Poppins",color: Color(0xFF2E5AA6),fontSize: MediaQuery.of(context).size.width *0.055))
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(right: MediaQuery.of(context).size.width *0.06),
-                        child: Icon(Icons.dark_mode,color: Color(0xFF2E5AA6)),
-                      )
-                    ],
-                  ),
-                )
+
               ],
             )
           ],

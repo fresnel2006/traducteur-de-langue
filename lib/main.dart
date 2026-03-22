@@ -1,5 +1,6 @@
 import 'package:app1/Pages/Apprentissage.dart';
 import 'package:app1/Pages/BienvenueApprentissage.dart';
+import 'package:app1/Pages/Communaute.dart';
 import 'package:app1/Pages/Debutant.dart';
 import 'package:app1/Pages/Entrainement.dart';
 import 'package:app1/Pages/Menu.dart';
@@ -25,7 +26,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body:InscriptionPage(),
+        body:SwitchPage(),
       ),
     );
   }
