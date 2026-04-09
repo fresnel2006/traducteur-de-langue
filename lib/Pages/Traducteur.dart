@@ -17,11 +17,13 @@ class _TraducteurPageState extends State<TraducteurPage> {
 
   bool sun=true;
   bool logo=true;
+
   Future<void>initiation_theme() async{
     var perfs=await SharedPreferences.getInstance();
     perfs.setBool("sun",sun);
     print("la valeur de sun sauvegarder est : "+sun.toString());
   }
+
   Future<void>obtention_theme()async{
     var perfs=await SharedPreferences.getInstance();
     setState(() {
@@ -29,11 +31,13 @@ class _TraducteurPageState extends State<TraducteurPage> {
     });
     print("la valeur de sun sauvegarder est : "+sun.toString());
   }
+
   @override
   void initState(){
     super.initState();
     obtention_theme();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -133,7 +137,7 @@ class _TraducteurPageState extends State<TraducteurPage> {
                 SizedBox(height: MediaQuery.of(context).size.height *0.04,),
                 Container(
                   width: MediaQuery.of(context).size.width *0.95,
-                  height: MediaQuery.of(context).size.height *0.7,
+                  height: MediaQuery.of(context).size.height *0.6,
                   child: TextFormField(
                     maxLines: 6,
                     cursorColor: sun?Color(0xFF2E5AA6):Colors.white,
@@ -150,12 +154,6 @@ class _TraducteurPageState extends State<TraducteurPage> {
                     ),
                   ),
                 ).animate().fadeIn(delay: Duration(milliseconds: 1300)).blur(begin: Offset(3, 3),end: Offset(0, 0)),
-
-              ],
-            ),
-            Column(
-              children: [
-                SizedBox(height: MediaQuery.of(context).size.height *0.74,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -164,8 +162,8 @@ class _TraducteurPageState extends State<TraducteurPage> {
                       height: MediaQuery.of(context).size.height *0.07,
                       width:MediaQuery.of(context).size.width *0.35,
                       decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white,width: MediaQuery.of(context).size.width *0.006),
-                        borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *0.03))
+                          border: Border.all(color: Colors.white,width: MediaQuery.of(context).size.width *0.006),
+                          borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *0.03))
                       ),
                       child: Text("Français",style: TextStyle(color: Colors.white,fontFamily: "Poppins"),),
                     ),
@@ -187,12 +185,39 @@ class _TraducteurPageState extends State<TraducteurPage> {
 
                   ],
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height *0.03,),
-                Container(
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+    Container(
 
-                  child: IconButton(onPressed: (){
-                  }, icon: Icon(Icons.cameraswitch_rounded,color: Colors.white,size:MediaQuery.of(context).size.height *0.07 ,)),
-                ),
+      child: IconButton(onPressed: (){
+      }, icon: Icon(Icons.cameraswitch_rounded,color: Colors.transparent,size:MediaQuery.of(context).size.height *0.07 ,)),
+    ),
+    Container(
+      height: MediaQuery.of(context).size.height *0.15,
+      alignment: Alignment.center,
+      child: IconButton(onPressed: (){
+      }, icon: Icon(Icons.cameraswitch_rounded,color: Colors.white,size:MediaQuery.of(context).size.height *0.07 ,)),
+    ),
+    Container(
+      height: MediaQuery.of(context).size.height *0.15,
+      alignment: Alignment.bottomRight,
+      child: IconButton(onPressed: (){
+
+      }, icon: Icon(Icons.settings_voice,color: Colors.white,size:MediaQuery.of(context).size.width *0.15 ,)),
+    ).animate().fadeIn(delay: Duration(milliseconds: 1500)).blur(begin: Offset(3, 3),end: Offset(0, 0)),
+
+  ],
+)
+
+              ],
+            ),
+            Column(
+              children: [
+                SizedBox(height: MediaQuery.of(context).size.height *0.74,),
+
+                SizedBox(height: MediaQuery.of(context).size.height *0.03,),
+
 
 
               ],
@@ -209,12 +234,6 @@ Column(
 
   ],
 ),
-      Container(
-        margin: EdgeInsets.only(top: MediaQuery.of(context).size.height *0.88,left: MediaQuery.of(context).size.width *0.7),
-        child: IconButton(onPressed: (){
-
-        }, icon: Icon(Icons.settings_voice,color: Colors.white,size:MediaQuery.of(context).size.width *0.15 ,)),
-      ).animate().fadeIn(delay: Duration(milliseconds: 1500)).blur(begin: Offset(3, 3),end: Offset(0, 0)),
 
             ],
         ),

@@ -31,7 +31,8 @@ class _ApprentissagePageState extends State<ApprentissagePage> {
     });
 
   }
-
+  var page;
+  var nb_xp;
   @override
   void initState(){
     super.initState();
@@ -39,8 +40,7 @@ class _ApprentissagePageState extends State<ApprentissagePage> {
   }
   @override
   Widget build(BuildContext context) {
-    var page;
-    var nb_xp;
+
     
     return Scaffold(
       backgroundColor: Colors.white,
@@ -176,9 +176,6 @@ class _ApprentissagePageState extends State<ApprentissagePage> {
                           ),
 
                         ),
-
-
-
 
                       ],
                     ),
