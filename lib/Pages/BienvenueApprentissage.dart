@@ -3,6 +3,7 @@ import 'package:app1/Pages/Switch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:lottie/lottie.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class BienvenueApprentissagePage extends StatefulWidget {
   const BienvenueApprentissagePage({super.key});
@@ -12,10 +13,14 @@ class BienvenueApprentissagePage extends StatefulWidget {
 }
 
 class _BienvenueApprentissagePageState extends State<BienvenueApprentissagePage> {
+
   int index=1;
+  var pageapprentissage=false;
+
   void changer_de_page(){
     if(index>=3){
       if(index==3){
+        sauvegarde_index();
         Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ApprentissagePage()), (route)=>false);
       }
       setState(() {
@@ -27,12 +32,27 @@ class _BienvenueApprentissagePageState extends State<BienvenueApprentissagePage>
       });
     }
   }
+  Future <void> sauvegarde_index() async{
+    final perfs=await SharedPreferences.getInstance();
+    perfs.setBool("pageapprentissage", true);
+  }
+  Future <void> recuperer_index() async{
+    final perfs=await SharedPreferences.getInstance();
+    setState(() {
+      pageapprentissage=perfs.getBool("pageapprentissage")??false;
+    });
+  }
+  @override
+  void initState(){
+    super.initState();
+    recuperer_index();
+  }
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
+      body: pageapprentissage?ApprentissagePage():SingleChildScrollView(
         child: Stack(
           children: [
             Container(
@@ -118,6 +138,7 @@ class _BienvenueApprentissagePageState extends State<BienvenueApprentissagePage>
                     ),
                     child: TextButton(onPressed: (){
                       changer_de_page();
+
                     }, child: index==3?Icon(Icons.arrow_forward,color: Colors.white,size: MediaQuery.of(context).size.width *0.07,):Text("Suivant",style: TextStyle(fontFamily: "Poppins",color: Colors.white),))
                 ),
               ],)

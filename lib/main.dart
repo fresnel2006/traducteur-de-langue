@@ -1,7 +1,11 @@
 import 'package:app1/Pages/Apprentissage.dart';
+import 'package:app1/Pages/Communaute.dart';
+import 'package:app1/Pages/Inscription%20et%20connexion/Connexion.dart';
 import 'package:app1/Pages/Inscription%20et%20connexion/Inscription.dart';
+import 'package:app1/Pages/Inscription%20et%20connexion/Profil.dart';
 import 'package:app1/Pages/Switch.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
@@ -24,11 +28,38 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+
+  bool rediriger=false;
+  Future <void> redirection() async{
+    var perfs=await SharedPreferences.getInstance();
+    var nom_utilisateur=await perfs.getString("nom_d_utilisateur")??"";
+
+    if(nom_utilisateur==""){
+      print(nom_utilisateur.toString());
+      print("c'est vide");
+    setState(() {
+      rediriger=true;
+    });
+      print(rediriger.toString());
+    }else{
+      setState(() {
+        rediriger=false;
+      });
+      print("c'est pas vide");
+      print(rediriger.toString());
+      }
+  }
+  @override
+  void initState(){
+    super.initState();
+    redirection();
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body:InscriptionPage(),
+        body:rediriger?InscriptionPage():SwitchPage(),
       ),
     );
   }

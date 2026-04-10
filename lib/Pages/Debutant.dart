@@ -1,4 +1,5 @@
 import 'package:app1/Pages/Apprentissage.dart';
+import 'package:app1/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -56,14 +57,27 @@ class _DebutantPageState extends State<DebutantPage> {
         xp=xp+(bonne_reponse*1.5);
       });
       sauvegarder_donnee();
+      enregistrer_xp();
       Navigator.pop(context);
 
+  }
+  var nom_utilisateur;
+  Future <void> enregistrer_xp() async{
+    final perfs=await SharedPreferences.getInstance();
+    setState(() {
+      nom_utilisateur=perfs.getString("nom_d_utilisateur")??"";
+    });
+    print("hfjsdhfjsdfksdfhskjdhfjhskdjfkjsdhfs"+nom_utilisateur.toString());
+    await supabase
+        .from('utilisateurs_beflemi_kouadio')
+        .update({ 'niveau': xp })
+        .eq('nom_utilisateur', nom_utilisateur);
   }
   int quiz1=1;
   var xp;
   Future <void> sauvegarder_donnee() async{
     final perfs=await SharedPreferences.getInstance();
-    await perfs.setDouble("xp", xp);
+    await perfs.setDouble("xp",xp);
   }
 
   Future <void> charger_donnee() async{
@@ -72,6 +86,7 @@ class _DebutantPageState extends State<DebutantPage> {
       xp=perfs.getDouble("xp")??0;
     });
   }
+
   @override
   void initState(){
     super.initState();

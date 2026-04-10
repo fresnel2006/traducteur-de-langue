@@ -5,6 +5,7 @@ import 'package:app1/Pages/Intermediaire.dart';
 import 'package:app1/Pages/Niveau.dart';
 import 'package:app1/Pages/NivoDan.dart';
 import 'package:app1/Pages/Switch.dart';
+import 'package:app1/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -21,6 +22,7 @@ class ApprentissagePage extends StatefulWidget {
 class _ApprentissagePageState extends State<ApprentissagePage> {
   var xp;
   var niveau;
+
   Future <void> charger_donnee() async{
     final perfs=await SharedPreferences.getInstance();
     setState(() {
@@ -31,6 +33,7 @@ class _ApprentissagePageState extends State<ApprentissagePage> {
     });
 
   }
+
   var page;
   var nb_xp;
   @override

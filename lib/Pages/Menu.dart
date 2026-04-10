@@ -1,10 +1,12 @@
 import 'package:app1/Pages/BienvenueApprentissage.dart';
+import 'package:app1/Pages/Inscription%20et%20connexion/Profil.dart';
 import 'package:app1/Pages/Parametre.dart';
 import 'package:app1/Pages/Switch.dart';
 import 'package:app1/Pages/Traducteur.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -14,6 +16,19 @@ class MenuPage extends StatefulWidget {
 }
 
 class _MenuPageState extends State<MenuPage> {
+  var nom_utilisateur;
+
+  Future <void > afficher_info_utilisateur() async{
+    var perfs=await SharedPreferences.getInstance();
+    setState(() {
+      nom_utilisateur= perfs.getString("nom_d_utilisateur")??"";
+    });
+  }
+  @override
+  void initState(){
+    super.initState();
+    afficher_info_utilisateur();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,10 +68,8 @@ class _MenuPageState extends State<MenuPage> {
 
                       ListTile(
                         leading: Icon(Icons.account_circle,color: Colors.white,size: MediaQuery.of(context).size.width *0.1,),
-                        title: Text("Traore",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05)),
-                        subtitle: Text("Ange fresnel",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05)),
-                      )
-                      
+                        title: Text("${nom_utilisateur.toString()}...",style: TextStyle(color: Colors.white,fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.05)),
+                        )
                     ],
                   ),
 
@@ -65,7 +78,7 @@ class _MenuPageState extends State<MenuPage> {
                 SizedBox(height: MediaQuery.of(context).size.height *0.04,),
                 GestureDetector(
                   onTap: (){
-
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilePage()));
                   },
                   child: Container(
                       alignment: Alignment.center,

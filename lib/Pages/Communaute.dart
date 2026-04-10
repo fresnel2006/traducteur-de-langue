@@ -194,35 +194,35 @@ class _CommunautePageState extends State<CommunautePage> {
                   ),
                 ):SizedBox(),
 (index_chat==1) || (index_chat==2)?Container(
-  height: MediaQuery.of(context).size.height *0.65,
-  width: MediaQuery.of(context).size.width *1,
-  child: ListView.builder(itemCount: 5,itemBuilder: (context, index) => Container(
-    child: ListTile(
-    leading: Icon(Icons.account_circle,size: MediaQuery.of(context).size.width *0.113,),
-    title: Text("Chargement...",style: TextStyle(fontFamily: "Poppins",),),
-    subtitle:
-    Column(
-      children: [
-        Container(
-          width:MediaQuery.of(context).size.width *1 ,
-          child:
-        Text("Chargement...",style: TextStyle(fontFamily: "Poppins",color: Colors.black26)),
-        ),Row(
-          children: [
-            Container(
-              child:
-            Text("Niveau : ",style: TextStyle(fontFamily: "Poppins",color: Colors.black26))
+  child: Column(
+    children: [
+      Lottie.asset("assets/animations/Empty Notifications.json",height: MediaQuery.of(context).size.height *0.3),
+      Container(
+        child: Text("Aucun groupe \npour le moment",textAlign: TextAlign.center,style: TextStyle(fontFamily: "Poppins",color: Color(0xFF2E5AA6)),
+      ),
+      ),
+      SizedBox(height: MediaQuery.of(context).size.height *0.04,),
+      Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color:Colors.deepOrange.shade200,
+              borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width *0.03))
             ),
-          Icon(Icons.star,color: Colors.yellow,),
-            Text("...")
-          ],
-        )
+            width:MediaQuery.of(context).size.width *0.5,
+              height: MediaQuery.of(context).size.height *0.06,
+              child: Text("Une notification\nvous sera envoyé",textAlign: TextAlign.center,style: TextStyle(fontFamily: "Poppins",color: Color(0xFF2E5AA6),),
 
-      ],
-    ),
-    trailing: Icon(CupertinoIcons.arrowshape_turn_up_right_fill,),
-  ),),
-  )
+              )
+          ),
+
+        ],
+      )
+
+    ],
+  ),
 ).animate().blur(duration: Duration(seconds: 1),begin: Offset(4, 4),end: Offset(0, 0)):Text("")
               ],
             ),

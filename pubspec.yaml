@@ -31,7 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_animate: ^4.5.2
-  shared_preferences: ^2.3.2
+  shared_preferences: ^2.5.4
   flutter_zoom_drawer: ^3.2.0
   lottie: ^3.3.2
   supabase_flutter: ^2.0.0
@@ -79,6 +79,7 @@ flutter:
      - assets/animations/Bull.json
      - assets/animations/Angry Rrrrr!.json
      - assets/animations/Empty red.json
+     - assets/animations/Empty Notifications.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

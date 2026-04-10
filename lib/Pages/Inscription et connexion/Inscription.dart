@@ -26,17 +26,41 @@ class _InscriptionPageState extends State<InscriptionPage> {
   bool bordure3=true;
   bool bordure4=true;
 
-  Future <void> ajouter_utilisateur() async{
+  Future <void> ajouter_utilisateurs() async{
     try{
-    await supabase
-        .from('utilisateurs_beflemi_kouadio')
-        .insert({'nom_complet': nom_complet.text, 'mot_de_passe': mot_de_passe.text,'nom_utilisateur': nom_d_utilisateur.text,'niveau':0});
-        Navigator.pushAndRemoveUntil(context,MaterialPageRoute(builder: (context)=>CommunautePage()), (route)=>false);
+      await supabase
+          .from('utilisateurs_beflemi_kouadio')
+          .insert({'nom_complet': nom_complet.text, 'mot_de_passe': mot_de_passe.text,'nom_utilisateur': nom_d_utilisateur.text,'niveau':0});
+      Navigator.pushAndRemoveUntil(context,MaterialPageRoute(builder: (context)=>CommunautePage()), (route)=>false);
     }
-  catch(e){
+    catch(e){
+      print("l'erreur est : $e",);
       message_d_erreur();
+    }
   }
+
+  Future <void> verifier_utilisateur() async{
+    try {
+      var donnee = await supabase
+          .from('utilisateurs_beflemi_kouadio')
+          .select('*').eq('nom_utilisateur', nom_d_utilisateur.text);
+      print(donnee);
+      if (donnee.isEmpty) {
+        print("l'utilisateur n'existe pas dans la base de donnee");
+        ajouter_utilisateurs();
+        sauvegarde_nom_utilisateur();
+      } else {
+        print("l'utilisateur existe dans la base de donnee");
+        message_utilisateur_existant();
+        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ConnexionPage()), (route)=>false);
+      }
+    }catch(e){
+      print("erreur : $e",);
+      message_d_erreur();
+    }
   }
+
+
 
   Future <void>  sauvegarde_nom_utilisateur() async{
     var perfs=await SharedPreferences.getInstance();
@@ -61,6 +85,23 @@ class _InscriptionPageState extends State<InscriptionPage> {
     ));
   }
 
+  void message_utilisateur_existant(){
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor:Color(0xFF2E5AA6),duration: Duration(seconds: 1),content:
+    Container(
+      height: MediaQuery.of(context).size.height *0.1,
+      decoration:BoxDecoration(
+          color: Color(0xFF2E5AA6)
+      ),
+      child: Column(
+        children: [
+          SizedBox(height: MediaQuery.of(context).size.width *0.02,),
+          Icon(Icons.verified_user,color: Colors.white,size: MediaQuery.of(context).size.width *0.12,),
+          Text("Utilisateur existant",style: TextStyle(fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.04),)
+        ],
+      ),
+    )
+    ));
+  }
   void verification_de_saisie(){
     if(nom_complet.text.trim().isEmpty){
       setState(() {
@@ -104,7 +145,7 @@ class _InscriptionPageState extends State<InscriptionPage> {
       });
     }
     if(nom_d_utilisateur.text.trim().isNotEmpty && nom_d_utilisateur.text.trim().isNotEmpty && !mot_de_passe.text.trim().isEmpty && !mot_de_passe.text.contains(" ") && confirmation_mot_de_passe.text==mot_de_passe.text){
-      ajouter_utilisateur();
+      verifier_utilisateur();
     }
   }
   @override
@@ -144,9 +185,10 @@ class _InscriptionPageState extends State<InscriptionPage> {
                 Container(
                   width: MediaQuery.of(context).size.width *0.9,
                   child: TextFormField(
-
+maxLength: 15,
                     controller: nom_d_utilisateur,
                     decoration: InputDecoration(
+
                         prefixIcon: Icon(Icons.sort_by_alpha,color: Color(0xFF2E5AA6)),
                         label: Text("Nom d'utilisateur",style: TextStyle(fontFamily: "Poppins",color: bordure2?Color(0xFF2E5AA6):Colors.red,fontSize: MediaQuery.of(context).size.width *0.045),),
                         enabledBorder: OutlineInputBorder(
@@ -160,7 +202,7 @@ class _InscriptionPageState extends State<InscriptionPage> {
                     ),
                   ),
                 ).animate().fadeIn(delay: Duration(milliseconds: 1300)).scale(delay:Duration(milliseconds: 1400),begin: Offset(1.3, 1.3),end: Offset(1, 1)),
-                SizedBox(height: MediaQuery.of(context).size.height *0.02,),
+
                 Container(
                   width: MediaQuery.of(context).size.width *0.9,
                   child: TextFormField(

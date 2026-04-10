@@ -1,4 +1,5 @@
 import 'package:app1/Pages/Apprentissage.dart';
+import 'package:app1/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -49,11 +50,24 @@ class _NivodanPageState extends State<NivodanPage> {
             ],
           ),)
     )));
-    Navigator.pop(context);
+
     setState(() {
       xp=xp+(bonne_reponse*2.5);
     });
+    enregistrer_xp();
     sauvegarder_donnee();
+    Navigator.pop(context);
+  }
+  var nom_utilisateur;
+  Future <void> enregistrer_xp() async{
+    final perfs=await SharedPreferences.getInstance();
+    setState(() {
+      nom_utilisateur=perfs.getString("nom_d_utilisateur")??"";
+    });
+    await supabase
+        .from('utilisateurs_beflemi_kouadio')
+        .update({ 'niveau': xp })
+        .eq('nom_utilisateur', nom_utilisateur);
   }
   Future <void> sauvegarder_donnee() async{
     final perfs=await SharedPreferences.getInstance();

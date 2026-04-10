@@ -6,6 +6,7 @@ import 'package:app1/Pages/Switch.dart';
 import 'package:app1/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ConnexionPage extends StatefulWidget {
   const ConnexionPage({super.key});
@@ -38,14 +39,39 @@ class _ConnexionPageState extends State<ConnexionPage> {
     )
     ));
   }
+  void message_d_erreur_de_connexion(){
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor:Colors.white,duration: Duration(seconds: 1),content:
+    Container(
+      height: MediaQuery.of(context).size.height *0.1,
+      decoration:BoxDecoration(
+          color: Colors.white
+      ),
+      child: Column(
+        children: [
+          SizedBox(height: MediaQuery.of(context).size.width *0.02,),
+          Icon(Icons.dangerous_outlined,color: Colors.red,size: MediaQuery.of(context).size.width *0.12,),
+          Text("Erreur de connexion",style: TextStyle(color: Color(0xFF2E5AA6),fontFamily: "Poppins",fontSize: MediaQuery.of(context).size.width *0.04),)
+        ],
+      ),
+    )
+    ));
+  }
+
+
   Future <void> ajouter_utilisateur() async{
     try{
       var donnee=await supabase
           .from('utilisateurs_beflemi_kouadio')
               .select('*').eq('nom_complet', nom_complet.text).eq('mot_de_passe', mot_de_passe.text);
-      print(donnee[0]);
-      Navigator.pushAndRemoveUntil(context,MaterialPageRoute(builder: (context)=>CommunautePage()), (route)=>false);
-    }
+      print("le nom d'utilisateur de l'utilisateur est : ${donnee[0]['nom_utilisateur']}",);
+      var perfs=await SharedPreferences.getInstance();
+      perfs.setString("nom_d_utilisateur", donnee[0]['nom_utilisateur']);
+      if(donnee.isNotEmpty){
+        Navigator.pushAndRemoveUntil(context,MaterialPageRoute(builder: (context)=>SwitchPage()), (route)=>false);
+      }else{
+        message_d_erreur_de_connexion();
+      }
+      }
     catch(e){
       message_d_erreur();
     }
@@ -136,7 +162,6 @@ class _ConnexionPageState extends State<ConnexionPage> {
                   SizedBox(height: MediaQuery.of(context).size.height *0.04,),
                   GestureDetector(
                     onTap: (){
-                      message_d_erreur();
                       verification_de_saisie();
                     },
                     child:
